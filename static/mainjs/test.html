@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ye important function h home.js ka
+    <script>
+        function renderDirectories(directories, container = document.querySelector('.folder-section')) {
+            container.innerHTML = ""; // Clear previous content
+            document.addEventListener("click", () => {
+                document.querySelectorAll(".custom-popup").forEach((popup) => {
+                    popup.classList.add("hidden");
+                });
+            });
+
+            directories.forEach((directory) => {
+                if (directory.type === "directory") {
+                    // Create folder container
+                    const folderContainer = document.createElement("div");
+                    folderContainer.classList.add("folder-container");
+
+                    // Folder content
+                    folderContainer.innerHTML = `
+                                                    <div class="folder">
+                                                        <!-- Left Side: Confidential Image & Folder Details -->
+                                                        <div class="folder-content">
+                                                
+                                                            <div class="folder-info">
+                                                                <img src="static/images/Folder.png" alt="folderimg" class="folder-click">
+                                                                <div>
+                                                                    <div class="folder-name folder-click">${directory.name}</div>
+                                                                    <div class="folder-time">${directory.dateTime || "N/A"}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        
+                                                        <!-- Right Side: Category & Greater Than Sign -->
+                                                        <div class="folder-actions">
+                                                            <button class="category-button">
+                                                                <img src="static/images/VectorSmart Object.png" alt="image">
+                                                                ${directory.category}
+                                                            </button>
+                                                            <!-- Options Button -->
+                                                            <button class="options-button">&gt;</button>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <!-- Category Popup -->
+                                                 <div class="custom-popup hidden category-popup">
+                                                 <div class="popup-content">
+                                                   <h3>Change Status:</h3>
+                                                  <button class="select-status">Select</button>
+                                                   <div class="horizontal-dropdown hidden">
+                                                     <span>Confidential</span>
+                                                      <span>Top Secret</span>
+                                                        <span>Protected</span>
+                                                 </div>
+                                                </div>
+                                                </div>
+
+                                        
+
+
+                                                       <!-- Options Popup -->
+                                                   <div class="custom-popup hidden options-popup"> 
+                                                   <div class="popup-content">
+                                                   <p class="popup-text">Choose to either rename or delete the folder</p>
+                                                   <div class="popup-buttons">  <!-- Flex container added -->
+                                                    <button class="rename-btn">Rename</button>
+                                                    <button class="delete-btn">Delete</button>
+                                                   </div>
+                                                  </div>
+                                                          </div>
+
+
+                                                  <!-- Rename Popup -->
+                                                     <div class="custom-popup hidden rename-popup"> 
+                                                     <div class="popup-content">
+                                                   <h3>Rename Folder</h3>
+                                                    <input type="text" class="rename-input" placeholder="Enter new name">
+                                                   <button class="confirm-rename">Confirm</button>
+                                                      <button class="close-rename">Cancel</button>
+                                                     </div>
+                                                    </div>
+
+                                                            <!-- Delete Popup -->
+                                                  <div class="custom-popup hidden delete-popup"> 
+                                                 <div class="popup-content">
+                                                      <h3>Are you sure you want to delete this folder?</h3>
+                                                  <button class="confirm-delete">Yes, Delete</button>
+                                               <button class="close-delete">Cancel</button>
+                                                           </div>
+                                                           </div>
+
+
+                                                `;
+
+                    // Get elements
+                    const folderImage = folderContainer.querySelector(".folder-click");
+                    const folderName = folderContainer.querySelector(".folder-name");
+                    const categoryButton = folderContainer.querySelector(".category-button");
+                    const optionsButton = folderContainer.querySelector(".options-button");
+                    const categoryPopup = folderContainer.querySelector(".category-popup");
+                    const selectButton = categoryPopup?.querySelector(".select-status");
+                    const dropdown = categoryPopup?.querySelector(".horizontal-dropdown");
+                    const optionsPopup = folderContainer.querySelector(".options-popup");
+                    const closePopup = categoryPopup?.querySelector(".close-popup");
+                    const renamePopup = folderContainer.querySelector(".rename-popup");
+                    const deletePopup = folderContainer.querySelector(".delete-popup");
+
+                    const renameButton = optionsPopup.querySelector(".rename-btn");
+                    const deleteButton = optionsPopup.querySelector(".delete-btn");
+
+                    const closeOptions = optionsPopup.querySelector(".close-options");
+                    const closeRename = renamePopup.querySelector(".close-rename");
+                    const closeDelete = deletePopup.querySelector(".close-delete");
+
+                    // Console log to check if elements are found
+                    console.log("📌 Elements Found:", { categoryButton, categoryPopup, selectButton, dropdown });
+
+                    // Click event only on folder image and name
+                    [folderImage, folderName].forEach((element) => {
+                        element?.addEventListener("click", (event) => {
+                            event.stopPropagation();
+                            console.log("📂 Clicked Folder:", directory.name);
+                            renderChildren(directory.children, directory.name, directory.full_path);
+                        });
+                    });
+
+                    // Show popup when clicking category button
+                    categoryButton?.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        document.querySelectorAll(".custom-popup").forEach(p => p.classList.add("hidden"));
+                        categoryPopup?.classList.remove("hidden");
+                        console.log("📌 Category Popup Opened");
+                    });
+
+                    // Show dropdown options when clicking Select button
+                    selectButton?.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        dropdown?.classList.toggle("hidden");
+                    });
+
+                    // Close popup
+                    closePopup?.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        categoryPopup?.classList.add("hidden");
+                    });
+
+                    // Show options popup
+                    optionsButton?.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        document.querySelectorAll(".custom-popup").forEach(p => p.classList.add("hidden"));
+                        optionsPopup?.classList.remove("hidden");
+                    });
+
+                    // Open Rename Popup
+                    renameButton.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        optionsPopup.classList.add("hidden");
+                        renamePopup.classList.remove("hidden");
+                    });
+
+                    // Open Delete Popup
+                    deleteButton.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        optionsPopup.classList.add("hidden");
+                        deletePopup.classList.remove("hidden");
+                    });
+
+                    // Close Buttons
+                    closeOptions.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        optionsPopup.classList.add("hidden");
+                    });
+
+                    closeRename.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        renamePopup.classList.add("hidden");
+                    });
+
+                    closeDelete.addEventListener("click", (event) => {
+                        event.stopPropagation();
+                        deletePopup.classList.add("hidden");
+                    });
+
+
+                    // Hide all popups when clicking outside
+                    document.addEventListener("click", () => {
+                        document.querySelectorAll(".custom-popup").forEach((popup) => {
+                            popup.classList.add("hidden");
+                        });
+                    });
+
+                    // Append to the container
+                    container.appendChild(folderContainer);
+                }
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>
