@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="tailwindcss-colors.css">
+    <link rel="stylesheet" href="../static/authstyle/starredgrp.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+
+
+<body>
+
+    <!-- start: Chat -->
+    <section class="chat-section">
+
+        <div class="popup-container">
+            <div class="popup-content">
+                <ul>
+                    <li><a href="create-group.html">Create Group</a></li>
+                    <li>Start a Chat</li>
+                    <li>Archive</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="chat-container">
+            <!-- start: Sidebar -->
+
+            <!-- end: Sidebar -->
+            <!-- start: Content -->
+
+            <!-- start: Content side -->
+
+
+
+            <!-- end: Content side -->
+            <!-- start: Conversation -->
+            <div class="conversation conversation-default active">
+                <div class="conversation-top">
+                   
+                    <!-- Back Button -->
+                    <button type="button" class="conversation-back">
+                     
+                        <i class="ri-arrow-left-line"></i>
+            
+                    </button>
+                
+
+
+
+                    <!-- More Info Button -->
+                    <div class="conversation-buttons">
+                        <button type="button" class="notification-btn" aria-label="Notifications">
+                            <i class="ri-notification-3-line"></i>
+                        </button>
+                        <button type="button" class="more-info-btn" aria-label="More Options">
+                            <i class="ri-more-2-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." class="search-input">
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <h2>Starred group</h2>
+                
+                </div>
+
+                <div class="content-messages">
+                    <ul class="content-messages-list" id="messagesList">
+                        <!-- Messages will be dynamically added here -->
+                    </ul>
+                </div>
+             
+
+
+            </div>
+
+
+
+          
+
+            <!-- end: Content -->
+        </div>
+
+    </section>
+    <!-- end: Chat -->
+    <script src="../static/mainjs/auth.js"></script>
+    <script src="../static/mainjs/starredgrp.js"></script>
+</body>
+
+</html>

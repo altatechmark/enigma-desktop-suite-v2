@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../static/authstyle/declinecall.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="call-container">
+        <div class="profile-container">
+            <div class="image-wrapper">
+                <img src="../static/chatimg/pic1.png" alt="Profile Pic" class="sender-image" id="selectedUserImage">
+            </div>
+            <div class="caller-name" id="selectedUserName"></div>
+            <div class="call-status" id="callingType"></div>
+        </div>
+        
+        
+        
+        <div class="buttons">
+            <button class="btn decline">&#128222;</button>
+        </div>
+    </div>
+    <script src="../static/mainjs/outgoingcall.js"></script>
+</body>
+</html>

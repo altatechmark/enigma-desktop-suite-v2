@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Enigma Desktop App</title>
+  <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/authstyle/style.css">
+</head>
+<body>
+  <div class="biometric-header">
+    <a href="/" class="back-button">Back</a>
+    <h1 class="heading">Biometric Registration</h1>
+  </div>
+  <div class="logo-container">
+    <img id="biometric-image" src="static/images/bio.png" alt="logo" width="200" style="display: block;">
+    <img id="biometric-image-2" src="static/images/Biometric.png" alt="logo" width="200" style="display: none;">
+    <img id="biometric-image-3" src="static/images/Group 16.png" alt="logo" width="200" style="display: none;">
+    <img id="biometric-image-4" src="static/images/Biometric (2).png" alt="logo" width="200" style="display: none;">
+    <h6 id="progress-text">1/4</h6>
+    <button id="next-button">Next</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This is the 5th image. You can perform additional actions here.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript -->
+ <!-- Correct Script Order -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+<script src="../static/mainjs/auth.js"></script>
+<script src="static/mainjs/biometric.js"></script> <!-- Custom JS -->
+
+</body>
+</html>

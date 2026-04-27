@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" style="margin-top: 8px;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enigma Desktop App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../static/authstyle/algorithm.css" />
+</head>
+<body>
+
+  <div class="logo">
+    <div class="profile"
+  style="position: absolute;
+  color: white;
+  top: 45px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  z-index: 1;
+  margin-left: 125px;">
+      <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+      <div>
+        <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+        <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+      </div>
+    </div>
+  </div>
+     
+    
+    <h1 class="header">
+        <img src="../static/chatimg/Backward arrow sign.png" alt="Back" style="cursor: pointer;" onclick="goBack()">
+        Cryptographic Algorithms
+    </h1>
+
+<div class="terms-container">
+  <aside class="sidebar">
+    <ul>
+      <li class="active" data-title="1. RSA" data-content='
+        <strong>Description:</strong> RSA (Rivest-Shamir-Adleman) ek public-key encryption algorithm hai.<br>
+        <strong>Features:</strong> <div class="emoji">🌐</div>
+        <ul class="features">
+          <li>Public & private key use karta hai</li>
+          <li>Secure data transmission ke liye mashhoor hai</li>
+          <li>Slow but very secure</li>
+        </ul>
+      '>1. RSA</li>
+
+      <li data-title="2. AES" data-content='
+        <strong>Description:</strong> AES (Advanced Encryption Standard) ek symmetric encryption algorithm hai.<br>
+        <strong>Features:</strong> <div class="emoji">🔄</div>
+        <ul class="features">
+          <li>High performance for large data</li>
+          <li>128, 192, aur 256-bit key sizes</li>
+          <li>Widely used in government & military</li>
+        </ul>
+        
+      '>2. AES</li>
+
+      <li data-title="3. ECC" data-content='
+        <strong>Description:</strong> ECC (Elliptic Curve Cryptography) lightweight aur efficient public-key algorithm hai.<br>
+        <strong>Features:</strong>  <div class="emoji">🛡️</div>
+        <ul class="features">
+          <li>Choti keys ke saath strong security</li>
+          <li>IoT aur mobile devices ke liye ideal</li>
+          <li>Fast and secure</li>
+        </ul>
+       
+      '>3. ECC</li>
+
+      <li data-title="4. KEM" data-content='
+        <strong>Description:</strong> KEM (Key Encapsulation Mechanism) symmetric keys ko securely exchange karne ka tariqa hai.<br>
+        <strong>Features:</strong> <div class="emoji">✍️</div>
+        <ul class="features">
+          <li>Post-quantum secure options available</li>
+          <li>Public-key infrastructure me use hota hai</li>
+          <li>Efficient key wrapping/unwrapping</li>
+        </ul>
+        
+      '>4. KEM</li>
+
+      <li data-title="5. KPKE" data-content='
+        <strong>Description:</strong> KPKE (Key Policy Attribute-Based Encryption) me access policies keys me hoti hain.<br>
+        <strong>Features:</strong> <div class="emoji">🔐</div>
+        <ul class="features">
+          <li>Fine-grained access control</li>
+          <li>Useful for encrypted data sharing</li>
+          <li>Supports complex policies</li>
+        </ul>
+        
+      '>5. KPKE</li>
+
+      <li data-title="6. LTM" data-content='
+        <strong>Description:</strong> LTM (Lattice-based encryption) post-quantum cryptography ka part hai.<br>
+        <strong>Features:</strong> <div class="emoji">🧮</div>
+        <ul class="features">
+          <li>Quantum computer resistant</li>
+          <li>Based on hard math problems</li>
+          <li>Efficient and scalable</li>
+        </ul>
+        
+      '>6. LTM</li>
+
+      <li data-title="7. TN" data-content='
+        <strong>Description:</strong> TN (True Name Encryption) ek concept hai jo identity-based access control enforce karta hai.<br>
+        <strong>Features:</strong> <div class="emoji">👥</div>
+        <ul class="features">
+          <li>User’s real-world identity pe based encryption</li>
+          <li>Zero-knowledge proofs ka support</li>
+          <li>Experimental stage me hai</li>
+        </ul>
+        
+      '>7. TN</li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <h2 id="section-title">1. RSA</h2>
+    <p id="section-content">
+      <strong>Description:</strong> RSA (Rivest-Shamir-Adleman) ek public-key encryption algorithm hai.<br>
+      
+      <ul class="features">
+        <li>Public & private key use karta hai</li>
+        <li>Secure data transmission ke liye mashhoor hai</li>
+        <li>Slow but very secure</li>
+      </ul>
+      <!-- <div class="emoji">🌐</div> -->
+    </p>
+  </main>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.sidebar li');
+  const sectionTitle = document.getElementById('section-title');
+  const sectionContent = document.getElementById('section-content');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      items.forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      sectionTitle.textContent = item.getAttribute('data-title');
+      sectionContent.innerHTML = item.getAttribute('data-content');
+    });
+  });
+
+  function goBack() {
+          window.history.back();
+        }
+        
+</script>
+<script src="../static/mainjs/updateprofileApi.js"></script>
+
+</body>
+</html>

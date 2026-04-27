@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Enigma Desktop App</title>
+  <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/authstyle/style.css">
+</head>
+<body>
+
+  <div class="mobile-warning">
+    screen not available on mobile. Please use a larger screen.
+  </div>
+  
+  <div class="forgot-password-container">
+    <h1 class="brand-name">ENIGMA</h1>
+    <div class="form-container">
+      <h2>Forgot Password</h2>
+      <p>Enter your email and we’ll send you a link to reset your password.</p>
+      <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="name.surname@gmail.com" required>
+        <p class="error-message">We cannot find your email.</p>
+        <div class="button-container">
+        <button class="angled-button" type="submit">Submit</button>
+        </div>
+      </form>
+      <a href="#" class="back-to-login">← Back to Login</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/authstyle/SecuritySettings.css">
+    <title>Enigma Desktop App</title>
+</head>
+
+<body>
+    <div class="mobile-warning">
+        <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+      </div>
+
+    <div class="logo">
+        <div class="profile"
+      style="position: absolute;
+      color: white;
+      top: 45px;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 1;
+      margin-left: 125px;">
+          <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+          <div>
+            <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+            <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+          </div>
+        </div>
+      </div>
+
+    <div class="header">
+        <a href="knotalgo" class="back-button">
+          <img src="../static/chatimg/Backward arrow sign.png" alt="Back" />
+        </a>
+        <div class="logo-container">
+          <img src="../static/images/Group 21.png" alt="Enigma Logo" />
+        </div>
+      </div>
+      
+    <div class="container">
+        <h2> Enigma Security Engine</h2>
+        <p>
+            Powered by the Patented Knot Algorithm
+        </p>
+
+        <h3> What is the Knot Algorithm?</h3>
+        <p>
+            The Knot Algorithm is Enigma’s patented post-quantum encryption system, designed from the ground up to
+            protect your files, chats, and digital identity from both current and future cyber threats — including
+            attacks from quantum computers. <br>
+
+            Inspired by the complexity of Torus Knot Geometry, this algorithm transforms data into high-dimensional
+            encrypted structures that are mathematically unique, irreversible, and secure against brute-force and
+            quantum decryption.
+        </p>
+
+        <h3> Why Knot Algorithm is Different</h3>
+        <p><strong> Post-Quantum Ready</strong></p>
+        <p>
+            Traditional encryption like RSA and ECC can be broken by quantum computers. Knot Algorithm is designed to
+            resist quantum attacks using a novel, patent-protected approach.
+
+        </p>
+
+        <h3> Geometric Encryption</h3>
+        <p>
+            Instead of using number theory alone, it encrypts your data using 3D knot structures generated in
+            high-dimensional space — making decryption without the right key mathematically infeasible.
+
+        </p>
+
+        <h3> Time-Based Key Rotation</h3>
+        <p>
+            Keys change every 60 seconds using secure, clock-based logic — so even if data is captured, it cannot be
+            reused or decrypted later.
+
+        </p>
+
+        <h3> Dual-Key Security </h3>
+            <p>
+                Your communication is protected by both public-private key pairs and real-time symmetric keys, combined
+                in a unique way using the Knot.
+
+
+            </p>
+
+            <h3> Built-in Tamper Detection</h3>
+            <p>
+                Every encrypted object includes a custom hash validation — if anyone tampers with it, the system
+                immediately detects and blocks it.
+
+
+            </p>
+
+            <h3> What It Secures</h3>
+
+
+            <div style="list-style: none; margin-left: 24px;">
+                <li><strong>Files</strong> (images, documents, metadata)
+                <li><strong>Chats & Messages</strong> (real-time communication)</li>
+                <li><strong>Digital Identity</strong></li>
+                <li><strong>Access Tokens & Keys</strong></li>
+                <li><strong>IoT Devices & Embedded Systems</strong></li>
+            </div>
+
+
+            <h3> How It Works (Simplified)</h3>
+            <ol>
+                <li>A unique public-private key pair is created per user.</li>
+                <li>Your data is wrapped inside a<strong>Torus Knot structure,</strong>using time-synced parameters.
+                </li>
+                <li>This “knot” is encrypted using your keys and can't be untied without them.<br>
+                    The result is a secure, quantum-resistant output<strong>— different every time,</strong> even for
+                    the same
+                </li>
+            </ol>
+
+            <h3>Secured by the Patented Knot Algorithm</h3>
+            <p>
+                Post-Quantum Encryption. Built for the Future.
+                Wherever you see this badge, your data is safe — not just from hackers today, but from
+                the supercomputers of tomorrow.
+
+            </p>
+
+            <h3>  Trusted by Experts. Designed for Everyone.</h3>
+            <p>
+               
+                The Knot Algorithm is <strong>not just encryption</strong> — it’s a <strong>post-quantum<br>
+                 security revolution,</strong> made simple, fast, and mobile-ready.
+
+            </p>
+    </div>
+
+    <script src="../static/mainjs/updateprofileApi.js"></script>
+    <script>
+        document.addEventListener("wheel", function (event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+// Right-Click Disable
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+// Keyboard Shortcuts Disable
+document.addEventListener("keydown", function (event) {
+    // Ctrl + Any Key Disable
+    if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+    }
+
+    // Specific Keys Disable
+    const disabledKeys = ["F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1"];
+    if (disabledKeys.includes(event.key)) {
+        event.preventDefault();
+    }
+});
+
+// // Disable F5, Ctrl+R
+document.addEventListener("keydown", function (event) {
+    if (event.key === "F5" || (event.ctrlKey && event.key === "r")) {
+        event.preventDefault();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.body.style.userSelect = 'none';
+
+    // Also disable mouse-based selection
+    document.body.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+});
+
+    </script>
+</body>
+   
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="slidebar.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+<body>
+
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>    
+    <div class="sidebar-main" id="sidebarMain">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../static/images/Group 21.png" alt="Logo" id="icon">
+                <button class="close-btn" onclick="toggleSidebar()">✖</button>
+            </div>
+            <div class="profile">
+                <img src="../static/images/avatar.png" alt="User">
+                <span>Gunther Beard ❤️</span>
+                <img src="../static/images/shld.png" alt="User" id="icon">
+            </div>
+            <ul class="menu">
+                <li> <img src="../static/images/MyNetwork.png" alt="User" id="icon"> My Network</li>
+                <li> <img src="../static/images/HelpandSupport.png" alt="User" id="icon"> Help & Support</li>
+                <li> <img src="../static/images/Settings.png" alt="User" id="icon"> Settings</li>
+                <li> <img src="../static/images/PrivacyPolicy.png" alt="User" id="icon"> Privacy Policy</li>
+                <li class="logout"> <img src="../static/images/Logout.png" alt="User" id="icon"> Logout</li>
+            </ul>
+        </div>
+    </div>
+    <script src="slidebar.js"></script>
+
+</body>
+</html>

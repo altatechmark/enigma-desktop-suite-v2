@@ -1,0 +1,101 @@
+<!-- Create Ticket Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    <link rel="stylesheet" href="../static/authstyle/support.css">
+</head>
+<body>
+
+  <div class="mobile-warning">
+     <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+    <p>Unsupported Media</p>
+  </div>
+
+  <div id="custom-alert" class="custom-alert-overlay" style="display: none;">
+    <div class="custom-alert-box">
+        <img src="../static/chatimg/warning.png" alt="Warning" class="alert-icon">
+        <p id="custom-alert-message"></p>
+        <button onclick="hideCustomAlert()">OK</button>
+    </div>
+</div>
+
+    <!-- <div class="logo">
+        <div class="profile"
+      style="position: absolute;
+      color: white;
+      top: 5%;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 1;
+      margin-left: 6%;">
+         <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+          <div>
+            <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+            <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+          </div>
+        </div>
+      </div>
+
+    <h1 class="header">
+        <a href="helpsupport">
+        <img src="../static/chatimg/Backward arrow sign.png" alt="">
+    </a>
+        Support & Documentation
+    </h1> -->
+
+    <header class="header">
+        <!-- Left side: back button + profile -->
+        <div class="header-left">
+            <a href="helpsupport">
+          <img src="../static/chatimg/Backward arrow sign.png" alt="Back" class="back-button" />
+        </a>
+          <div class="logo">
+          <div class="profile">
+            <img src="../static/images/avatar.png" alt="User" />
+            <div class="user-info">
+              <span>Loading...</span>
+              <small class="user-email">abc@example.com</small>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+        <!-- Center heading -->
+        <div class="header-center">
+            Support & Documentation
+        </div>
+      </header>
+      
+    <div class="container">
+        <h2 style="color: white; text-align: center;">Create Ticket</h2>
+        <label>Product</label>
+        <input type="text" placeholder="Enter product name">
+        
+        <label>Complaint Type</label>
+        <input type="text" placeholder="Enter complaint type">
+        
+        <label>Enter Complaint details</label>
+        <textarea placeholder="Describe your issue..."></textarea>
+        
+        <button class="attach">Attach File</button>
+        
+        <div class="urgent-container">
+
+            <label class="switch-label">ON if the complaint is urgent</label>
+            <input type="checkbox" id="urgentToggle">
+          
+        </div>
+        <p id="priority">Priority is Normal</p>
+        
+        <button class="submit" onclick="submitTicket()">Submit</button>
+    </div>
+    <script src="../static/mainjs/support.js"></script>
+    <script src="../static/mainjs/updateprofileApi.js"></script>
+</body>
+</html>

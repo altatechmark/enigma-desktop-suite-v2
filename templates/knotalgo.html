@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../static/authstyle/knotalgo.css" />
+  <title>Enigma Desktop App</title>
+</head>
+<body>
+  
+  <div class="mobile-warning">
+    <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+    <p>Unsupported Media</p>
+  </div>
+
+  <!-- <div class="header">
+    <img src="../static/images/Group 21.png" alt="Enigma Logo" />
+  </div> -->
+
+  <div class="logo">
+    <div class="profile"
+  style="position: absolute;
+  color: white;
+  top: 45px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  z-index: 1;
+  margin-left: 125px;">
+      <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+      <div>
+        <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+        <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <a href="home" class="back-button">
+      <img src="../static/chatimg/Backward arrow sign.png" alt="Back" />
+    </a>
+    <div class="logo-container">
+      <img src="../static/images/Group 21.png" alt="Enigma Logo" />
+    </div>
+  </div>
+  
+
+  <div class="container">
+    <h1><span class="emoji"></span> Real-Time Encryption Status</h1>
+    <h1><span class="emoji"></span> Knot Algorithm</h1>
+    <p><span class="emoji"></span> Your files and chat are protected using: Knot Algorithm</p>
+    <a class="learn-more-btn" href="/SecuritySettings">Learn More</a>
+  </div>
+<script src="../static/mainjs/updateprofileApi.js"></script>
+<script>
+    document.addEventListener("wheel", function (event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+// Right-Click Disable
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+// Keyboard Shortcuts Disable
+document.addEventListener("keydown", function (event) {
+    // Ctrl + Any Key Disable
+    if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+    }
+
+    // Specific Keys Disable
+    const disabledKeys = ["F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1"];
+    if (disabledKeys.includes(event.key)) {
+        event.preventDefault();
+    }
+});
+
+// // Disable F5, Ctrl+R
+document.addEventListener("keydown", function (event) {
+    if (event.key === "F5" || (event.ctrlKey && event.key === "r")) {
+        event.preventDefault();
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    document.body.style.userSelect = 'none';
+
+    // Also disable mouse-based selection
+    document.body.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    });
+});
+
+  </script>
+</body>
+</html>

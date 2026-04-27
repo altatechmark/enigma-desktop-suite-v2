@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../static/authstyle/declinecall.css">
+    <!-- <link rel="stylesheet" href="/templates/css/outgoing-call.css"> -->
+    <link rel="stylesheet" href="../static/authstyle/incoming-call.css">
+    <link rel="stylesheet" href="../static/authstyle/desktopCall.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+  <div>
+
+    <!-- Home Screen -->
+    <div id="homecreen" class="call-container"  style="display: none;">
+      <div class="profile-container" style="text-align: center; padding-top: 50px;">
+        <h2 style="color: white;">Home Screen</h2>
+      </div>
+    </div>
+
+
+    <!-- decline call -->
+    <div id="decline" class="call-container" style="display: none;">
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image" id="AvatarForDeclineCall">
+        </div>
+        <div class="caller-status" id="delineCallUserName" style="color: #fff; font-size: 18px; margin-top: 20px;"> </div>
+        <div class="call-status" id="declinecallingType"></div>
+      </div>
+
+
+
+      <div class="declinebuttons" style="display: flex; justify-content: center; align-items: center;">
+        <button id="declinecross" class="btn decline" onclick="endcall()">
+          <img src="../static/images/📞 Decline.png " alt="">
+        </button>
+      </div>
+    </div>
+
+
+    <!-- recieved call -->
+    <div id="recieved" class="call-container" style="display: none;">
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image">
+        </div>
+        <div class="caller-name">M Amir 05 ❤</div>
+        <div class="call-status">Audio Call</div>
+      </div>
+
+
+
+      <div class="recievedbuttons"
+        style="margin-left: -49px; position: absolute; bottom: 21px; display: flex; gap: 77px;">
+        <button id="acceptCall" style="all: unset; cursor: pointer;">
+          <img src="../static/images/📞 Decline (2).png" alt="">
+        </button>
+        <button id="declineCall" style="all: unset; cursor: pointer;" onclick="endcall()">
+          <img src="../static/images/📞 Decline (2).png" alt="">
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- Outgoing call -->
+    <div id="outgoing-call" class="call-container" >
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image" id="AvatarForOutgoingCall">
+        </div>
+        <div class="caller-name" id="selectedUserName"></div>
+        <div class="call-status" id="callingType"></div>
+      </div>
+
+
+      <div class="Outgoingbuttons">
+        <button style="all: unset; cursor: pointer;" class="btn-decline" onclick="endcall()"><img
+            style="width: 60px; height: 60px; margin: 0px 250px;" src="../static/images/📞 Decline (2).png" alt=""></button>
+      </div>
+
+    </div>
+
+
+    <!-- <h1>WebRTC Video Call with Custom Signaling Server</h1>
+    <p style="margin-top: 20px;">Your ID: <span id="my-id">...</span></p>
+    <div>
+      <input type="text" id="peer-id-input" placeholder="Enter peer ID to call"> -->
+      <!-- <button id="call-btn">Call</button>
+    <button id="mute-btn">Mute/Unmute</button>
+    <button id="video-btn">Pause/Resume Video</button> -->
+
+    <!-- <div id="users-container"></div> -->
+
+    </div>
+
+    <!-- video call -->
+
+    <div id="video-call" style="display: none;">
+      <div>
+        <video class="main-video" id="remote-video" autoplay></video>
+      </div>
+      <div class="small-video-container" id="draggable">
+        <video class="small-video" id="local-video" autoplay muted></video>
+      </div>
+      <div class="top-bar">
+        <div class="user-info">
+          <img src="../static/images/Group 21.png" alt="User Logo">
+          <!-- <span>M Amir 05</span> -->
+          <div class="caller-name" id="receiverCallerName">  </div>
+        </div>
+        <div class="center-text">🔒 End-to-end encrypted</div>
+        <div class="window-controls" style="display: none;">
+          <span>&#9472;</span> <!-- Minimize -->
+          <span>&#9633;</span> <!-- Maximize -->
+          <span>&#10005;</span> <!-- Close -->
+        </div>
+      </div>
+
+      <div class="call-controls">
+        <div class="control-btn" id="mute-btn"><img src="../static/images/mute.png" alt="" style="width: 50px;"></div>
+        <div class="control-btn" id="video-btn"><img src="../static/images/📞 Decline (5).png" alt=""></div>
+        <button class="control-btn end-call"  onclick="endcall()"><img src="../static/images/📞 Decline.png " alt=""></button> 
+        <!-- id="call-btn" -->
+        <!-- <div class="mute">
+          <div>
+            <img style="border-radius: 50%; width: 50px; height: 50px;" src="../static/images/pic4.png" alt="">
+          </div>
+          <p style="margin-top: 2px; font-size: 11px; margin-left: 12px;">mute</p>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- audio call -->
+
+    <div id="audio-call" class="call-container" style="display: none;">
+      
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image" id="AvatarForAudioCall">
+        </div>
+        <div class="caller-name" id="audioCallReceiverCallerName"></div>
+        <div class="call-status" id="audioCallCallingType"></div>
+        <!-- <p class="call-status">00:00:21</p> -->
+      </div>
+
+
+
+      <div class="audiobuttons"
+        style="bottom: 21px; display: flex; gap: 20px; justify-content: center; align-items: center; margin: 200px auto; display: flex;">
+        <button id="mute-btn-for-audio-call" style="all: unset; cursor: pointer;">
+          <img src="../static/images/mute.png" alt="" style="width: 50px;">
+        </button>
+        <button style="all: unset; cursor: pointer;" onclick="endcall()">
+          <img src="../static/images/📞 Decline.png" alt="">
+        </button>
+        <!-- <div class="mute">
+          <button style="all: unset; cursor: pointer;">
+            <img style="margin-top: 13px; border-radius: 50%; width: 55px;" src="../static/images/pic4.png" alt="" id="AvatarForAudioCall2">
+          </button>
+          <p style="color: rgb(219, 213, 213); font-size: x-small; margin-top: 0; margin-left: 17px;">mute</p>
+        </div> -->
+
+      </div>
+
+    </div>
+    
+  </div>
+    <script src="../static/mainjs/desktopCall.js"></script>
+   <script src="../static/mainjs/disable.js"></script>
+    <!-- <script>
+    window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = ""; // Chrome ke liye zaroori hai
+    return ""; // Firefox ke liye
+  });
+    </script> -->
+</body>
+</html>

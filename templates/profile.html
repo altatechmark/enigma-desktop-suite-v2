@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/authstyle/profile.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+<body>
+
+    <div class="mobile-warning">
+        <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+      </div>
+
+    <div id="custom-alert" class="custom-alert-overlay" style="display: none;">
+        <div class="custom-alert-box">
+            <img src="../static/chatimg/warning.png" alt="Warning" class="alert-icon">
+            <p id="custom-alert-message"></p>
+            <button onclick="hideCustomAlert()">OK</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile-header">
+  
+            <button type="button" class="conversation-back">
+                <img src="../static/chatimg/Backward arrow sign.png" alt="Back" onclick="goBack()" style="cursor: pointer;">
+            </button>
+      
+            <div class="profile-title">Pictures</div>
+        </div>
+
+        <div class="header">ENIGMA</div>
+
+        <!-- Profile Section -->
+        <div class="profile">
+            <img id="profilePicture" src="../static/images/avatar.png" alt="Profile Picture" onclick="document.getElementById('imageUpload').click();">
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            <span id="userFullName">User</span>
+        </div>
+
+        <!-- Editable Fields -->
+        <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>Description:</strong>
+            <textarea id="description" readonly>Description will come here, company or about yourself.</textarea>
+        </div>
+
+        <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>First Name:</strong>
+            <input type="text" id="firstName" readonly>
+        </div>
+
+        <!-- <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>Last Name:</strong>
+            <input type="text" id="lastName" readonly>
+        </div> -->
+
+        <!-- <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>Phone:</strong>
+            <input type="text" id="phoneNumber" readonly>
+        </div> -->
+
+        <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>Website:</strong>
+            <input type="text" id="website" readonly>
+        </div>
+
+        <div class="box">
+            <button class="edit-button" onclick="enableEdit(this)">
+                <img src="../static/images/Editing.png" alt="Edit Picture" class="edit-icon">
+            </button>
+            <strong>Home/Shop:</strong>
+            <textarea id="address" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="../static/mainjs/auth.js"></script>
+    <script src="../static/mainjs/profile.js"></script>
+</body>
+</html>

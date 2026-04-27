@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Enigma Desktop App</title>
+  <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/authstyle/style.css">
+  <script defer src="static/js/login.js"></script>
+</head>
+<body>
+
+  <div id="custom-alert" class="custom-alert-overlay" style="display: none;">
+    <div class="custom-alert-box">
+        <img src="../static/chatimg/warning.png" alt="Warning" class="alert-icon">
+        <p id="custom-alert-message"></p>
+        <button onclick="hideCustomAlert()">OK</button>
+    </div>
+</div>
+
+  <div class="sign-in-container">
+    <img src="static/images/Group 21.png" style="margin-left: 22px;" alt="">
+    <div class="form-container">
+      <h2>Sign In</h2>
+      <p>Enter your credentials to access your account.</p>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="name.surname@gmail.com" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Your password" required>
+        
+        <div>
+          <div class="remember-me-container">
+            <!-- <input type="checkbox" id="remember-me" name="remember-me"> -->
+            <!-- <label for="remember-me">Remember me</label> -->
+            <a style="text-decoration: none; color: white;" href="/reset-password"> Forgot Password ?</a>
+          </div>
+          <div class="button-container">
+            <button class="angled-button" type="submit">Sign In</button>
+          </div>
+        </div>
+      </form>
+      <div class="footer">
+        <img src="../static/images/signin-icon.png" alt="">
+        <p class="no-account">
+          Secured by Post-Quantum Encryption
+          <a class="learn-more-btn" href="/learnmore">Learn More</a>
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

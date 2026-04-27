@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="tailwindcss-colors.css">
+    <link rel="stylesheet" href="../static/authstyle/call.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+<body>
+
+    <!-- start: Chat -->
+    <section class="chat-section">
+        <div class="chat-container">
+            <!-- start: Sidebar -->
+            <aside class="chat-sidebar">
+                <ul class="chat-sidebar-menu">
+                    <li><a href="#" data-title="Contacts"><img src="../static/chatimg/Home.png" alt="Home"></a></li>
+                    <li><a href="#" data-title="Chats"><img src="../static/chatimg/Chat.png" alt="Chat"></a></li>
+                    <li><a href="#" data-title="Groups"><img src="../static/chatimg/Group.png" alt="Group"></a></li>
+                    <li><a href="#" data-title="Documents"><img src="../static/chatimg/Files.png" alt="Documents"></a></li>
+                    <li><a href="#" data-title="Settings"><img src="../static/chatimg/Documents.png" alt="Settings"></a></li>
+                    <li><a href="#" data-title="Network"><img src="../static/chatimg/Network.png" alt="Network"></a></li>
+                    <li><a href="#" data-title="Secure"><img src="../static/chatimg/Secure.png" alt="Secure"></a></li>
+                    <li class="chat-sidebar-profile">
+                        <button type="button" class="chat-sidebar-profile-toggle">
+                            <ul class="chat-sidebar-menu">
+                                <li><a href="#" data-title="Settings"><img src="../static/chatimg/Settings.png" alt="Settings"></a></li>
+                                <li><a href="#" data-title="Logout"><img src="../static/chatimg/Logout.png" alt="Logout"></a></li>
+                            </ul>
+                        </button>
+                        <!-- <ul class="chat-sidebar-profile-dropdown">
+                            <li><a href="#"><img src="../static/chatimg/Home.png" alt="Profile"> Profile</a></li>
+                            <li><a href="#"><img src="../static/chatimg/Logout.png" alt="Logout"> Logout</a></li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </aside>
+            
+            <!-- end: Sidebar -->
+            <!-- start: Content -->
+            <div class="chat-content">
+                <!-- start: Content side -->
+                <div class="content-sidebar">
+                    
+                    <!-- Search Bar -->
+                    <form action="" class="content-sidebar-form">
+                        <input type="search" class="content-sidebar-input" placeholder="Search..." id="searchInput">
+                        <button type="submit" class="content-sidebar-submit"><i class="ri-search-line"></i></button>
+                    </form>
+                    <div class="banner">
+                    <!-- Red Banner -->
+                    <div id="image-container" style="display: flex; flex-wrap: wrap; margin-bottom: 40px;">
+                        <!-- Images will be appended here by JavaScript -->
+                    </div>
+                     <div>
+                        <img src="" alt="">
+                     </div>
+                    
+                    <!-- Buttons Row -->
+                    <div class="buttons-row">
+                        <button class="action-button" onclick="activateButton(this, './chat')">
+                            <img src="../static/chatimg/chats.png" alt="Chats"> chats
+                        </button>
+                        <!-- <button class="action-button" onclick="activateButton(this, './group.html')">
+                            <img src="../static/chatimg/Groups.png" alt="Groups"> groups
+                        </button>  -->
+                        <button class="action-button active" onclick="activateButton(this, './call.html')">
+                            <img src="../static/chatimg/callimg1.png" alt="Calls"> calls
+                        </button>
+                    </div>
+                    
+                </div>
+                    
+                    <!-- Message List -->
+                    <div class="content-messages">
+                        <ul class="content-messages-list" id="messagesList">
+                           
+                            <!-- Additional message items -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="audioCallModal" class="modal" style="display: none;">
+                  <div class="modal-content">
+                      <span class="close-btn">&times;</span>
+                      <div class="profile">
+                          <img src="../static/chatimg/audiocall.png" alt="Caller">
+                      </div>
+                      <p class="caller-name">Gunther Berg</p>
+                      <p class="call-timer">01:44</p>
+                      <div class="call-actions">
+                          <button class="video-btn"><img src="../static/chatimg/Video call.png" alt=""></button>
+                          <button class="call-btn"><img src="../static/chatimg/Calls (1).png" alt=""></button>
+                          <button class="mute-btn"><img src="../static/chatimg/Voice copy 2.png" alt=""></button>
+                      </div>
+                  </div>
+              </div>
+
+              <div id="videoCallModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Video Call</h2>
+                    <p>Starting a video call...</p>
+                </div>
+            </div>
+        
+
+                
+                
+                <!-- end: Content side -->
+                <!-- start: Conversation -->
+                <!-- <div id="default-conversation" class="conversation conversation-default active">
+                    <img src="../static/chatimg/icon.png" alt="Icon">
+                    <p>Select a chat and view conversation!</p>
+                  </div> -->
+
+                  <div id="default-conversation" class="conversation conversation-default active">
+                    
+                    <div class="conversation-top1">
+                        <button type="button" class="conversation-back1">
+                            <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+                        </button>
+                
+                        <div class="conversation-buttons">
+                          <button type="button" class="video-call-btn" style="color: red;" aria-label="Video Call">
+                            <i class="ri-video-line"></i>
+                        </button>
+                        
+                        <button type="button" class="audio-call-btn" style="color: red;" aria-label="Audio Call">
+                            <i class="ri-phone-line"></i>
+                        </button>
+                        
+                        <button type="button" class="notification-btn" style="color: red;" aria-label="Notifications">
+                            <i class="ri-notification-3-line"></i>
+                        </button>
+                        
+                        <button type="button" class="more-info-btn" style="color: red;" aria-label="More Options">
+                            <i class="ri-more-2-line"></i>
+                        </button>
+                        
+                        </div>
+                    </div>
+                
+
+                    <!-- <img src="../static/chatimg/icon.png" alt="Icon">
+                    <p>Select a chat and view conversation!</p> -->
+                </div>
+
+                  
+                  <div class="conversation" id="conversation-container">
+                    <div class="conversation-top">
+                      <button type="button" class="conversation-back" aria-label="Go Back">
+                        <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+                      </button>
+                      <div class="conversation-user">
+                        <img
+                          class="conversation-user-image"
+                          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                          alt="User Avatar"
+                        />
+                        <div>
+                          <div class="conversation-user-name">Someone</div>
+                          <div class="conversation-user-status online">Online</div>
+                        </div>
+                      </div>
+                    </div>
+
+                
+                  
+                    <div class="conversation-form">
+                      <button
+                        type="button"
+                        class="conversation-form-button"
+                        aria-label="Add Emoji"
+                      >
+                        <i class="ri-emotion-line"></i>
+                      </button>
+                      <div class="conversation-form-group">
+                        <textarea
+                          class="conversation-form-input"
+                          rows="1"
+                          placeholder="Type here..."
+                          aria-label="Message Input"
+                        ></textarea>
+                        <button
+                          type="button"
+                          class="conversation-form-record"
+                          aria-label="Record Voice Message"
+                        >
+                          <i class="ri-mic-line"></i>
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        class="conversation-form-button conversation-form-submit"
+                        aria-label="Send Message"
+                      >
+                        <i class="ri-send-plane-2-line"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+            </div>
+            <div class="heading-container">
+              <div class="heading-section">
+                <a href="home">
+                    <img src="../static/images/Home1.png" alt="">
+                    <h1>Home</h1>
+                </a>
+            </div>
+            <div class="heading-section">
+                <a href="chat">
+                    <img src="../static/images/Enigma-AI-Network.png" alt="">
+                    <h1>Enigma AI Network</h1>
+                </a>
+            </div>
+            </div>
+            <!-- end: Content -->
+        </div>
+       
+    </section>
+    <!-- end: Chat -->
+    
+    <script src="../static/mainjs/call.js"></script>
+</body>
+</html>

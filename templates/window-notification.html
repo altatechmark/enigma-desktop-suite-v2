@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enigma Desktop App</title>
+</head>
+<body>
+    <h2>🔔 Notification Permission Helper</h2>
+    <p id="status">Checking permission...</p>
+  
+    <button onclick="requestPermission()">Request Permission</button>
+    <button onclick="sendNotification()">Send Test Notification</button>
+    <button onclick="showResetInstructions()">How to Reset Permission</button>
+
+  <script>
+
+function updateStatus() {
+      document.getElementById('status').innerText =
+        'Current permission: ' + Notification.permission;
+    }
+
+    // Request permission for notifications
+    function requestPermission() {
+      if (Notification.permission !== 'granted') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            alert('Notification permission granted!');
+          } else {
+            alert('Notification permission denied. Check and Allow manually.');
+          }
+        });
+      } else {
+        alert('Notification permission already granted!');
+      }
+    };
+
+    // Reset permission for notifications
+    // function resetPermission() {
+    //   if (Notification.permission === 'granted') {
+    //     Notification().then(permission => {
+    //       if (permission === 'granted') {
+    //         alert('Notification permission granted!');
+    //       } else {
+    //         alert('Notification permission denied.');
+    //       }
+    //     });
+    //   } else {
+    //     alert('Notification permission already granted!');
+    //   }
+    // }
+
+    // Function to show a notification
+    function sendNotification() {
+      if (Notification.permission === 'granted') {
+        const notification = new Notification('Hello from JavaScript!', {
+          body: 'This is a native Windows notification using core JS.',
+          icon: 'https://via.placeholder.com/100' // Optional icon
+        });
+
+        notification.onclick = () => {
+          window.focus();
+          alert('You clicked the notification!');
+        };
+      } else {
+        alert('Please grant notification permission first.');
+      }
+    };
+
+    function showResetInstructions() {
+      alert(
+        "To reset notification permission in Microsoft Edge:\n\n" +
+        "1. Click the lock icon near the address bar.\n" +
+        "2. Click 'Permissions for this site'.\n" +
+        "3. Find 'Notifications' and set it to 'Ask' or 'Allow'.\n\n" +
+        "Alternatively, go to:\nedge://settings/content/notifications"
+      );
+      window.open("edge://settings/content/notifications", "_blank");
+    }
+
+    updateStatus();
+  </script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/authstyle/tailwindcss-colors.css">
+  <link rel="stylesheet" href="../static/authstyle/chat.css">
+  <link rel="stylesheet" href="../static/authstyle/desktopCall.css">
+
+  <!-- WebRtc scripts -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+  <title>Enigma Desktop App</title>
+  <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+
+<body>
+
+  <div class="mobile-warning">
+    <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+    <p>Unsupported Media</p>
+  </div>
+
+
+  <div id="custom-alert" class="custom-alert-overlay" style="display: none;">
+    <div class="custom-alert-box">
+      <img src="../static/chatimg/warning.png" alt="Warning" class="alert-icon">
+      <p id="custom-alert-message"></p>
+      <button onclick="hideCustomAlert()">OK</button>
+    </div>
+  </div>
+
+
+  <!-- Modal for Open File Preview -->
+  <div class="modal fade" id="openFileModal" tabindex="-1" aria-labelledby="openFileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="openFileModalLabel">File Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body" id="openFileModalBody">
+          <!-- JS will inject content here -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal-overlay" style="display: none;" onclick="closeModal()">
+    <div class="modal-contentforimg" onclick="event.stopPropagation()">
+      <img id="modalImage" src="" alt="Preview" />
+    </div>
+  </div>
+
+
+
+  <!-- Message or files sendto/forward Modal start-->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="height: auto !important;">
+        <div class="modal-body">
+          <p class="text">Send To</p>
+          <p id="selectedMessageId" class="text"></p>
+          <div class="container mt-5" id="userList">
+            <!-- User list will be dynamically added here -->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Message or files sendto/forward Modal end-->
+
+  <!-- Logout confirmation Modal start-->
+  <div id="logoutPopup" class="logout-popup" style="display: none;">
+    <div>
+      <div class="logo">
+        <div class="profile">
+          <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+          <div>
+            <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <p>Are you sure you want to log out?</p>
+      <div class="button-row">
+        <button onclick="logout()" style="background-color: green;">Yes</button>
+        <button onclick="closeLogoutPopup()">No</button>
+      </div>
+    </div>
+  </div>
+  <!-- Logout confirmation Modal end-->
+
+  <!-- All users and selected user chat part start here -->
+  <section class="chat-section" id="chat-section">
+    <!-- Navbar start -->
+    <header class="header">
+      <div class="logo">
+        <!-- <div class="profile"
+      style="position: absolute;
+      color: white;
+      top: 45px;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 1;
+      margin-left: -80px;">
+          <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+          <div>
+            <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+            <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+          </div>
+        </div> -->
+      </div>
+    </header>
+    <!-- Navbar end -->
+    <div class="chat-container">
+      <!-- start: Sidebar -->
+      <!-- <aside class="chat-sidebar">
+        <ul class="chat-sidebar-menu">
+          <div class="top-links">
+            <li><a href="./home" data-title="Home"><img style="width: 35px;" src="../static/chatimg/Home.png"
+                  alt="Home"></a>
+            </li>
+            <li><a href="./chat" data-title="Chats"><img style="width: 28px;" src="../static/chatimg/Chat.png"
+                  alt="Chat"></a>
+            </li>
+            <li><a href="./call" data-title="calls"><img style="width: 25px;" src="../static/chatimg/Calls (1).png"
+                  alt="calls"></a></li>
+          </div>
+
+
+          </li>
+          <li class="chat-sidebar-profile">
+            <button type="button" class="chat-sidebar-profile-toggle">
+
+            </button>
+            <ul class="chat-sidebar-menu">
+              <li>
+                <a href="/profile">
+                  <img src="../static/chatimg/Settings.png" style="margin-bottom: 30px; width: 35px;" alt="profile">
+                </a>
+              </li>
+              <li>
+                <button id="logoutBtn" data-title="Logout">
+                  <img style="width: 31px;" src="../static/chatimg/Logout.png" alt="Logout">
+                </button>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </aside> -->
+      <!-- end: Sidebar -->
+
+
+      <!-- start: Content -->
+      <div class="chat-content">
+
+        <!-- start: Content side -->
+        <div class="content-sidebar">
+
+          <!-- Form Row with Icon -->
+          <div class="form-with-icon">
+            <img src="../static/images/Group 21.png" alt="Back" class="form-icon" />
+            <form action="" class="content-sidebar-form">
+              <input type="search" class="content-sidebar-input" placeholder="Search..." id="searchInput">
+              <button type="submit" class="content-sidebar-submit"><i class="ri-search-line"></i></button>
+            </form>
+          </div>
+
+          <!-- Search Bar -->
+
+          <!-- <form action="" class="content-sidebar-form">
+            <input type="search" class="content-sidebar-input" placeholder="Search..." id="searchInput">
+            <button type="submit" class="content-sidebar-submit"><i class="ri-search-line"></i></button>
+          </form> -->
+
+          <!-- start banner -->
+          <div class="banner">
+            <h6 id="network-count" style="text-align: left; margin-left: 8px;">My Network: 0</h6>
+            <div id="image-container" style="display: flex; flex-wrap: wrap; margin-bottom: 40px;">
+              <!-- Images will be appended here by JavaScript -->
+            </div>
+
+            <div>
+              <img src="" alt="">
+            </div>
+
+            <!-- Buttons Row -->
+            <div class="buttons-row">
+              <button class="action-button active" onclick="activateButton(this, 'chat')">Chat</button>
+              <button class="action-button" onclick="activateButton(this, 'call')">Calls</button>
+
+            </div>
+
+          </div>
+          <!-- end banner -->
+
+          <!-- Message List start-->
+          <div class="content-messages">
+            <ul class="content-messages-list" id="messagesList">
+
+              <!-- Additional message items -->
+            </ul>
+          </div>
+          <!-- Message List end-->
+
+        </div>
+        <!-- end: Content side -->
+
+        <!-- start: Conversation -->
+
+        <div class="conversation-top1">
+          <div class="profile">
+            <img src="../static/images/avatar.png" style="width: 50px; height: 50px;" alt="User" />
+            <div class="profile-info">
+              <span style="display: block; margin-bottom: -2px; margin-left: 5px; color: white;">Loading...</span>
+              <small class="user-email">abc@example.com</small>
+            </div>
+          </div>
+          <!-- <a href="chat">
+            <button type="button" class="conversation-back1">
+              <img src="../static/images/Group 21.png" alt="Back">
+            </button>
+          </a> -->
+
+
+          <div class="conversation-buttons">
+            <a href="notification" class="notification-link">
+              <button type="button" class="notification-btnn">
+                <img src="../static/images/Notification-Bell.png" alt="Notification" class="bell-icon">
+                <p class="counter" id="counter">0</p>
+              </button>
+            </a>
+            <!-- <a href="notification">
+              <button type="button" class="notification-btn" style="background: none; border: none; padding: 0;">
+                <img src="../static/images/Notification-Bell.png" alt="">
+              </button>
+            </a> -->
+            <button type="button" class="more-info-btn" aria-label="More Options">
+              <i class="ri-more-2-line"></i>
+            </button>
+            <div class="popup-container" id="popupMenu">
+              <div class="popup-content">
+                <ul>
+                  <li><a href="archieved"><img src="../static/chatimg/Secure.png" alt=""> Archive</a></li>
+                  <li><a href="starredmsg"><img src="../static/chatimg/star.png" alt=""> starred</a></li>
+                  <li><a href="profile"><img src="../static/chatimg/Settings.png" alt=""> Settings</a></li>
+                  <li id="logoutBtn"><img src="../static/chatimg/Logout.png" alt=""> logout</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="default-conversation" class="conversation conversation-default active">
+
+
+          <!-- <div class="conversation-top1">
+            <a href="chat">
+              <button type="button" class="conversation-back1">
+                <img src="../static/images/Group 21.png" alt="Back">
+              </button>
+            </a>
+
+
+            <div class="conversation-buttons">
+              <a href="notification" class="notification-link">
+                <button type="button" class="notification-btnn"> 
+                  <img src="../static/images/Notification-Bell.png" alt="Notification" class="bell-icon">
+                  <p class="counter" id="counter">0</p>
+                </button>
+              </a>
+              <button type="button" class="more-info-btn" aria-label="More Options">
+                <i class="ri-more-2-line"></i>
+              </button>
+              <div class="popup-container" id="popupMenu">
+                <div class="popup-content">
+                  <ul>
+                    <li><a href="archieved">Archive</a></li>
+                    <li><a href="starredmsg">starred</a></li> 
+                    <li><a href="profile">Settings</a></li>
+                    <li id="logoutBtn">logout</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+          <img src="../static/chatimg/icon.png" alt="Icon">
+          <p>Select a chat and view conversation!</p>
+          <!-- <div class="footer">
+            <img src="../static/images/signin-icon.png" alt="">
+            <p class="no-account">
+              Secured by Post-Quantum Encryption
+              <a class="learn-more-btn" href="">Learn More</a>
+            </p>
+          </div> -->
+        </div>
+
+        <div class="conversation" id="conversation-container">
+          <div class="conversation-top">
+
+            <button type="button" class="conversation-back" aria-label="Go Back">
+              <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+            </button>
+
+            <div class="conversation-user">
+              <img class="conversation-user-image"
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+                alt="User Avatar" />
+              <div>
+                <div class="conversation-user-name" style="color: #fff;">Someone</div>
+                <div class="conversation-user-status online" style="color: #fff;">Online</div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="conversation-form">
+
+          </div>
+        </div>
+
+      </div>
+      <!-- end: Content -->
+
+
+      <!-- start: footer -->
+      <div class="heading-container">
+        <div class="heading-section">
+          <a href="home">
+            <img src="../static/images/Home1.png" alt="">
+            <h1>Home</h1>
+          </a>
+        </div>
+        <div class="heading-section">
+          <a href="chat">
+            <img src="../static/images/Enigma-AI-Network.png" alt="">
+            <h1>Quantum Network</h1>
+          </a>
+        </div>
+      </div>
+      <!-- end: footer -->
+
+      <!-- end: Content -->
+    </div>
+
+  </section>
+  <!-- All users and selected user chat part end here -->
+
+  <!-- WebRtc Audio/Video call work start here -->
+  <!-- decline call -->
+  <div id="decline" style="display: none; height: 100vh; background-color: #222;">
+    <div class="call-container">
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image" id="AvatarForDeclineCall">
+        </div>
+        <div class="caller-status" id="delineCallUserName" style="color: #fff; font-size: 14px; margin-top: 20px;">
+        </div>
+        <div class="call-status" id="declinecallingType"></div>
+      </div>
+
+
+
+      <div class="declinebuttons" style="display: flex; justify-content: center; align-items: center;">
+        <button id="declinecross" class="btn decline" onclick="declineCall()"><img
+            style="position: absolute; bottom: 21px; display: flex; gap: 20px;" src="../static/images/📞 Decline.png "
+            alt=""></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- recieved call -->
+  <div id="recieved" class="call-container" style="display: none;">
+    <div class="profile-container">
+      <div class="image-wrapper">
+        <img src="" alt="Profile Pic" class="sender-image" id="callerAvatar">
+      </div>
+      <div class="caller-name" id="callerName"></div>
+      <div class="call-status" id="callerInfo"></div>
+    </div>
+
+    <form id="update-password-form" onsubmit="pinVerification(event)">
+      <div class="otp-inputs">
+        <input type="text" class="otp-input" id="otp1" maxlength="1" required>
+        <input type="text" class="otp-input" id="otp2" maxlength="1" required>
+        <input type="text" class="otp-input" id="otp3" maxlength="1" required>
+        <input type="text" class="otp-input" id="otp4" maxlength="1" required>
+        <input type="text" class="otp-input" id="otp5" maxlength="1" required>
+        <input type="text" class="otp-input" id="otp6" maxlength="1" required>
+      </div>
+
+      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque fugit ad deserunt dolorum
+          fugiat cumque.</p>
+
+
+      <div class="button-container">
+          <button class="angled-button" type="submit">submit</button>
+      </div> -->
+    </form>
+
+    <div class="recievedbuttons" style="display: flex; gap: 77px; justify-content: center; margin: 80px auto;">
+      <button id="acceptCall" style="all: unset; cursor: pointer;">
+        <img src="../static/images/📞 Accept.png" alt="" style="width: 65px;">
+      </button>
+      <button id="declineCall" style="all: unset; cursor: pointer;">
+        <img src="../static/images/📞 Decline (2).png" alt="" style="width: 65px;">
+      </button>
+    </div>
+
+    <audio id="ringtone" src="../static/images/incoming-call-ringtone.mp3" preload="auto"></audio>
+
+
+  </div>
+
+
+  <!-- Outgoing call -->
+  <div id="outgoing-call" class="call-container" style="display: none;">
+    <div class="profile-container">
+      <div class="image-wrapper">
+        <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image">
+      </div>
+      <div class="caller-name"></div>
+      <div class="call-status"></div>
+    </div>
+
+
+    <div class="Outgoingbuttons" style="display: flex; justify-content: center; align-items: center;">
+      <button style="all: unset; cursor: pointer;" class="btn-decline" onclick="endcall()"><img
+          style="width: 60px; height: 60px; margin-left: 30px;" src="../static/images/📞 Decline (2).png"
+          alt=""></button>
+    </div>
+
+  </div>
+
+
+  </div>
+
+  <!-- video call -->
+
+  <div id="video-call" style="display: none; height: 100vh; background-color: #222;">
+    <div>
+      <video class="main-video" id="remote-video" autoplay></video>
+    </div>
+    <div class="small-video-container" id="draggable">
+      <video class="small-video" id="local-video" autoplay muted></video>
+    </div>
+    <div class="top-bar">
+      <div class="user-info">
+        <img src="../static/images/Group 21.png" alt="User Logo">
+        <div class="caller-name" id="incomingCallUserName"> </div>
+      </div>
+      <div class="center-text" style="color: #fff;">🔒 End-to-end encrypted</div>
+      <div class="window-controls" style="display: none;">
+        <span>&#9472;</span> <!-- Minimize -->
+        <span>&#9633;</span> <!-- Maximize -->
+        <span>&#10005;</span> <!-- Close -->
+      </div>
+    </div>
+
+    <div class="call-controls">
+      <div class="control-btn" id="mute-btn"><img src="../static/images/mute.png" alt="" style="width: 50px;"></div>
+      <div class="control-btn" id="video-btn"><img src="../static/images/📞 Decline (5).png" alt=""></div>
+      <button class="control-btn end-call" onclick="callEnd()"><img src="../static/images/📞 Decline.png "
+          alt=""></button>
+      <!-- <div class="mute">
+        <div>
+          <img style="border-radius: 50%; width: 50px; height: 50px;" src="../static/images/pic4.png" alt="">
+        </div>
+        <p style="margin-top: 2px; font-size: 11px; margin-left: 12px;">mute</p>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- audio call -->
+  <div id="audio-call" style="display: none; height: 100vh; background-color: #222;">
+    <div class="call-container">
+
+      <div class="profile-container">
+        <div class="image-wrapper">
+          <img src="../static/images/pic4.png" alt="Profile Pic" class="sender-image" id="AvatarForAudioCall">
+        </div>
+        <p class="caller-name" id="callerNameForAudioCall"></p>
+        <p class="call-status" id="callTypeForAudioCall"></p>
+
+      </div>
+
+
+
+      <div class="audiobuttons"
+        style="bottom: 21px; display: flex; gap: 20px; justify-content: center; align-items: center; margin: 75px auto; display: flex;">
+        <button id="mute-btn-for-audio-call" style="all: unset; cursor: pointer;">
+          <img src="../static/images/mute.png" alt="" style="width: 50px;">
+        </button>
+        <button style="all: unset; cursor: pointer;" onclick="callEnd()">
+          <img src="../static/images/📞 Decline.png" alt="">
+        </button>
+        <!-- <div class="mute">
+          <button style="all: unset; cursor: pointer; margin-top: 12px;">
+            <img style="margin-top: 13px; border-radius: 50%; width: 55px;" src="../static/images/pic4.png" alt=""
+              id="AvatarForAudioCall2">
+          </button>
+          <p style="color: rgb(219, 213, 213); font-size: 12px; margin-top: 0; margin-left: 3px; font-weight: bold;"
+            id="remoteMicStatus"> Unmuted </p>
+        </div> -->
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Audio/Video call work end here -->
+
+  <!-- end: Chat -->
+  <script src="../static/mainjs/auth.js"></script>
+  <script src="../static/mainjs/receiveDesktopCall.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+
+  <!-- Toastify JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+
+  <script defer src="../static/mainjs/chat.js"></script>
+  <script src="../static/mainjs/pincode.js"></script>
+  <script src="../static/mainjs/event.js"></script>
+
+
+</body>
+
+</html>

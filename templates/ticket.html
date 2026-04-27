@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    <link rel="stylesheet" href="../static/authstyle/ticket.css">
+</head>
+
+<body>
+    <div class="mobile-warning">
+        <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+      </div>
+    <!-- <div class="logo">
+        <div class="profile" style="position: absolute;
+      color: white;
+      top: 1%;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 1;
+      margin-left: 5%;">
+            <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+            <div>
+                <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+                <small class="user-email"
+                    style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <!-- <h3 class="header">
+        <div>
+            <a href="helpsupport">
+                <img src="../static/chatimg/Backward arrow sign.png" alt="">
+            </a>
+        </div>
+        Support & Documentation
+    </h3> -->
+
+    
+    <header class="header">
+        <!-- Left side: back button + profile -->
+        <div class="header-left">
+            <a href="helpsupport">
+          <img src="../static/chatimg/Backward arrow sign.png" alt="Back" class="back-button" />
+        </a>
+          <div class="logo">
+          <div class="profile">
+            <img src="../static/images/avatar.png" alt="User" />
+            <div class="user-info">
+              <span>Loading...</span>
+              <small class="user-email">abc@example.com</small>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+        <!-- Center heading -->
+        <div class="header-center">
+            Support & Documentation
+        </div>
+      </header>
+
+    <div class="container">
+
+        <h2>Ticket Status</h2>
+        <div class="ticket-info">
+            <p>
+            <h1 class="ticket-heading">Ticket Info</h1>
+            </p>
+            <p>Ticket ID:<span class="ticket-id"> #00002</span></p>
+            <p>Created: 21 Feb 2025</p>
+            <p>Last Message: No Message</p>
+            <p>Status: <span class="status open">Open</span></p>
+            <p>Priority: <span class="priority urgent">Urgent</span></p>
+            <p class="complaint-row">
+                <span class="left-text">Complaint Type:</span>
+                <span class="right-text">Can't access the HEK</span>
+            </p>
+
+            <p class="complaint-row">
+                <span class="left-text">Complaint Detail:</span>
+                <span class="right-text">I can't access my HEK002. Kindly check and update...</span>
+            </p>
+
+        </div>
+    </div>
+    <script src="../static/mainjs/ticket.js"></script>
+    <script src="../static/mainjs/updateprofileApi.js"></script>
+</body>
+
+</html>

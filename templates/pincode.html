@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/authstyle/pincode.css">
+</head>
+
+<body>
+
+    <div class="mobile-warning">
+        <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+      </div>
+
+    <div id="custom-alert" class="custom-alert-overlay" style="display: none;">
+        <div class="custom-alert-box">
+            <img src="../static/chatimg/warning.png" alt="Warning" class="alert-icon">
+            <p id="custom-alert-message"></p>
+            <button onclick="hideCustomAlert()">OK</button>
+        </div>
+    </div>
+    
+    <div class="otp-validation-container">
+        <h1 class="brand-name"><img src="../static/images/logo.png" alt=""></h1>
+        <div class="form-container">
+            <h2>Verify your 6 digit PIN Code</h2>
+ 
+            <form id="update-password-form" onsubmit="pinSubmit(event)">
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" id="otp1" maxlength="1" required>
+                    <input type="text" class="otp-input" id="otp2" maxlength="1" required>
+                    <input type="text" class="otp-input" id="otp3" maxlength="1" required>
+                    <input type="text" class="otp-input" id="otp4" maxlength="1" required>
+                    <input type="text" class="otp-input" id="otp5" maxlength="1" required>
+                    <input type="text" class="otp-input" id="otp6" maxlength="1" required>
+                </div>
+
+
+                <div class="button-container">
+                    <button class="angled-button" type="submit">submit</button>
+                </div>
+            </form>
+
+
+            <!-- <p class="resend-otp">
+        Resend code In <a href="#" id="resend-link">Resend OTP</a>
+        <span id="timer"></span> 836214
+      </p> -->
+        </div>
+    </div>
+    <script src="../static/mainjs/pincode.js"></script>
+    <script>
+
+        // 366485
+
+
+    </script>
+</body>
+
+</html>

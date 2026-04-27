@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enigma Desktop App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/authstyle/helpsupport.css">
+</head>
+<body>
+
+  <!-- <div class="logo">
+    <div class="profile"
+  style="position: absolute;
+  color: white;
+  top: 4%;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  z-index: 1;
+  margin-left: 3%;">
+      <img src="../static/images/avatar.png" style="width: 54px; height: 54px;" alt="User">
+      <div>
+        <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+        <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+      </div>
+    </div>
+  </div>
+    
+    <h1 class="header">
+        <img src="../static/chatimg/Backward arrow sign.png" alt="Back" onclick="goBack()" style="cursor: pointer;">
+        Help & Support
+    </h1> -->
+
+    <div class="mobile-warning">
+      <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+    </div>
+
+
+    <header class="header">
+      <!-- Left side: back button + profile -->
+      <div class="header-left">
+        <img src="../static/chatimg/Backward arrow sign.png" alt="Back" onclick="goBack()" class="back-button" />
+        <div class="logo">
+        <div class="profile">
+          <img src="../static/images/avatar.png" alt="User" />
+          <div class="user-info">
+            <span>Loading...</span>
+            <small class="user-email">abc@example.com</small>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+      <!-- Center heading -->
+      <div class="header-center">
+        Help & Support
+      </div>
+    </header>
+
+    
+    <div class="container">
+      <div class="container mt-5 text-white support-message">
+        <p class="text-center" style="font-size:20px;">
+          For <strong>Enigma Mobile App Support</strong>, our dedicated team is here to assist you.
+          Whether you have questions, encounter technical issues, or need guidance on using our app effectively, we're just a message away.
+          Contact us through the in-app support feature or reach out via email at: 
+          <br>
+          <a href="mailto:support@enigmakey.io" class="btn btn-link text-blue text-decoration-none">
+           support@enigmakey.io
+          </a>
+          <br>
+          Your satisfaction is our priority, and we're committed to ensuring your app experience is smooth and enjoyable.
+          Thank you for choosing Enigma.
+        </p>
+      </div>
+        
+    <div class="button-container">
+        <a href="support" class="custom-btn">Complain Register</a>
+        <a href="ticket" class="custom-btn">Complain status</a>
+    </div>
+    </div>
+
+    <script>
+
+       // function goBack() {
+        //   window.history.back();
+        // }
+
+              function goBack() {
+  window.location.href = '/home'; // or just '/' if your home is at root
+}
+
+
+      </script>
+      <script src="../static/mainjs/updateprofileApi.js"></script>
+
+      <script>
+
+        document.addEventListener("wheel", function (event) {
+    if (event.ctrlKey) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+// Right-Click Disable
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+// Keyboard Shortcuts Disable
+document.addEventListener("keydown", function (event) {
+    // Ctrl + Any Key Disable
+    if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+    }
+
+    // Specific Keys Disable
+    const disabledKeys = ["F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1"];
+    if (disabledKeys.includes(event.key)) {
+        event.preventDefault();
+    }
+});
+
+// // Disable F5, Ctrl+R
+document.addEventListener("keydown", function (event) {
+    if (event.key === "F5" || (event.ctrlKey && event.key === "r")) {
+        event.preventDefault();
+    }
+});
+
+      </script>
+      
+</body>
+
+
+</html>

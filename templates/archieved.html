@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/authstyle/tailwindcss-colors.css">
+    <link rel="stylesheet" href="../static/authstyle/archieved.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+
+<body>
+
+    <div class="mobile-warning">
+        <img src="../static/chatimg/display-not-1.png" alt="Not Supported">
+        <p>Unsupported Media</p>
+      </div>
+      
+    <!-- start: Chat -->
+    <section class="chat-section">
+
+             <!-- Back Button -->
+             <!-- <button type="button" class="conversation-back">
+                <a href="chat">
+                <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+                </a>
+            </button>
+        <div class="logo">
+            <div class="profile"
+          style="position: absolute;
+          color: white;
+          top: 3%;
+          display: flex;
+          align-items: center;
+          gap: 0px;
+          z-index: 1;
+          margin-left: 5%;">
+             <img src="../static/images/avatar.png" style="width: 54px; height: 54px; border-radius: 50%; border: 3px solid red; object-fit: cover;" alt="User">
+              <div>
+                <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+                <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+              </div>
+            </div>
+        </div> -->
+
+        <header class="header">
+            <div class="header-left">
+                <!-- Back Button -->
+                <button type="button" class="conversation-back">
+                    <a href="chat">
+                        <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+                    </a>
+                </button>
+        
+                <!-- Profile -->
+                <div class="logo">
+                <div class="profile">
+                    <img src="../static/images/avatar.png" alt="User">
+                    <div>
+                        <span>Loading...</span>
+                        <small class="user-email">abc@example.com</small>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </header>
+        
+
+
+
+        <div class="chat-container">
+
+            <div class="conversation conversation-default active">
+                <div>
+                    <!-- <div class="conversation-top">
+                   
+    
+                    </div> -->
+    
+                    <div class="search-bar" style="margin-top: 50px;">
+                        <input id="searchInput" type="text" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; color: white; margin-top: 33px; margin-left: 12px;">
+                    <h3><img src="../static/images/Archived.png" alt="archieved" style="margin-right: 10px;">archieved</h3>
+                </div>
+
+                <div class="content-messages">
+                    <ul class="content-messages-list" id="messagesList">
+                        <!-- Messages will be dynamically added here -->
+                    </ul>
+                </div>
+              
+               
+
+            </div>
+
+
+
+           
+        </div>
+
+        
+
+    </section>
+
+    
+    <!-- end: Chat -->
+    <script src="../static/mainjs/auth.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+
+<!-- Toastify JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+    <script src="../static/mainjs/archieved.js"></script>
+    <script src="../static/mainjs/updateprofileApi.js"></script>
+</body>
+
+</html>

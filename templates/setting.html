@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../static/authstyle/setting.css">
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+</head>
+<body>
+
+    <div class="logo">
+        <div class="profile"
+      style="position: absolute;
+      color: white;
+      top: 45px;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 1;">
+          <img src="../static/images/avatar.png" style="width: 60px; height: auto;" alt="User">
+          <div>
+            <span style="display: block; margin-bottom: -2px; margin-left: 5px;">Loading...</span>
+            <small class="user-email" style="display: block; font-size: 12px; color: gray; margin-left: 5px;">abc@example.com</small>
+          </div>
+        </div>
+      </div>
+    
+    <div class="container">
+        <div>
+            <button type="button" class="conversation-back" style="justify-content: flex-start;">
+                <a href="chat">
+                <img src="../static/chatimg/Backward arrow sign.png" alt="Back">
+            </a>
+            </button>
+    
+        
+                <div style="display: contents;">Settings</div>
+            
+        </div>
+    
+        <div class="box">
+            <button onclick="enableEdit(this)">  <img src="../static/chatimg/Editing.png" alt="Edit Picture" class="edit-icon"> </button>
+            <textarea readonly>Description will come here, company or about yourself.</textarea>
+        </div>
+       
+        <div class="box">
+            <!-- <button onclick="enableEdit(this)">  <img src="../static/chatimg/Editing.png" alt="Edit Picture" class="edit-icon"> </button> -->
+            <strong>Home/Shop:</strong>
+            <textarea readonly>2118 Thornridge Cir., Syracuse, Connecticut 35624</textarea>
+        </div>
+    </div>
+    <script src="../static/mainjs/auth.js"></script>
+    <script src="../static/mainjs/setting.js"></script>
+    <script src="../static/mainjs/updateprofileApi.js"></script>
+    
+</body>
+</html>

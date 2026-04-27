@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../static/authstyle/videocall.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Enigma Desktop App</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/my-icon.ico">
+    
+</head>
+<body>
+    <div class="video-call-container">
+        <video class="main-video" autoplay muted loop controls>
+            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <img id="placeholderImage" class="hidden" src="https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg" alt="Paused Video">
+        
+        <div class="small-video-container" id="draggable">
+            <video class="small-video" autoplay muted loop controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        
+        
+
+        
+        <div class="top-bar">
+            <div class="user-info">
+                <img src="../static/images/Group 21.png" alt="User Logo">
+                <span>M Amir 05</span>
+            </div>
+            <div class="center-text">🔒 End-to-end encrypted</div>
+            <div class="window-controls">
+                <span>&#9472;</span> <!-- Minimize -->
+                <span>&#9633;</span> <!-- Maximize -->
+                <span>&#10005;</span> <!-- Close -->
+            </div>
+        </div>
+        
+        <div class="call-controls">
+            <div class="control-btn"><img src="../static/chatimg/📞 Decline (1).png" alt=""></div>
+            <div class="control-btn"><i class="fa-solid fa-video"></i></div>
+            <div class="control-btn end-call"><img src="../static/chatimg/📞 Decline.png" alt=""></div>
+        </div>
+    </div>
+    <script src="../static/mainjs/videocall.js"></script>
+</body>
+</html>
