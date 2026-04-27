@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+.kebab-menu {
+    position: relative;
+}
+
+/* .popup {
+    width: 234px;
+    display: none;
+    position: absolute;
+    top: 21%;
+    left: -235px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 22px;
+    border-radius: 24px;
+    z-index: 1000;
+    background-color: black;
+} */
+
+.popup {
+    width: 234px;
+    display: none;
+    position: absolute;
+    top: 21%;
+    left: -235px;
+    background: black;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 22px;
+    border-radius: 24px;
+    z-index: 1000;
+}
+.btnnn {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.btnnnn {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+/* Hover state – red color, no movement */
+.btnnnn:hover,
+.btnnnn:focus,
+.btnnnn:active {
+    color: red;
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+    scale: 1;
+}
+.dots-img {
+    max-width: 10px !important;
+    height: auto !important;
+}
+
+.popup-content1 {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.popup-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 8px 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.popup-option:hover {
+    background-color: red;
+    color: white;
+}
+
+.popup-option img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.popup-option span {
+ /* font-size: 1em; */
+ font-weight: normal;
+ margin-left: -8px;
+ color: white;
+}
+
+.btn1 {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+
+
+/* Rename Modal (Alag Styling) */
+#renameModal.modal {
+    --bs-modal-width: 40% !important;
+    top: 19% !important;
+}
+
+#renameModal .modal-content {
+    background-color: black !important;
+    border: 1px solid blue !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0rem;
+}
+
+#renameModal .modal-header {
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#renameModal .modal-body {
+    padding: 15px;
+}
+
+#renameModal .modal-footer {
+    border-top: none;
+    justify-content: flex-end;
+}
+
+#renameInput {
+    background-color: #444;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#renameInput::placeholder {
+    color: #ccc;
+}
+#deleteModal.modal {
+    --bs-modal-width: 40% !important;
+    top: 19% !important;
+}
+
+#deleteModal .delete-modal-content {
+    background-color: black !important;
+    border: 1px solid red !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0rem;
+}
+
+#deleteModal .delete-modal-header {
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#deleteModal .delete-modal-body {
+    padding: 15px;
+}
+
+#deleteModal .delete-modal-footer {
+    border-top: none;
+    justify-content: flex-end;
+}
+
+#deleteModal .delete-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+};
+
+
+
+/* Farooq code */
+

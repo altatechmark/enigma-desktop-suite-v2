@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+}
+
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+    .hidden {
+        display: none;
+        width: 200px;  /* ✅ Width fix */
+        height: 200px; /* ✅ Height bhi same taake perfect round bane */
+        border-radius: 50%; /* ✅ Bilkul gol */
+        overflow: hidden; /* ✅ Extra content hide hoga */
+        /* display: flex;  */
+        align-items: center;
+        justify-content: center;
+    }
+
+
+.video-call-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+}
+
+.main-video {
+    width: 100vw;  /* Full screen width */
+    height: 100vh; /* Full screen height */
+    background: #222;
+    display: block;
+    overflow: hidden; /* Scroll hatane ke liye */
+}
+
+
+.small-video-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 217px;
+    height: 119px;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: grab;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.small-video {
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 10px;
+    pointer-events: none;
+    /* Video ke andar ke controls ko disable karne ke liye */
+}
+
+
+.top-bar {
+    position: fixed;
+    /* ✅ Top-bar ko fix kar dega */
+    top: 0;
+    left: -28px;
+    width: 100%;
+    /* ✅ Pure width cover kare */
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: black;
+    z-index: 1000;
+    /* ✅ Ensure that it's always on top */
+}
+
+.center-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.call-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 47%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.end-call {
+    background: red;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-info img {
+    width: 115px;
+    height: 36px;
+    /* border-radius: 50%; */
+    margin-left: 35px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.window-controls span {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.video-off {
+    position: relative;
+}
+
+.video-off::after {
+    content: "";
+    position: absolute;
+    top: 44%;
+    left: -1px;
+    width: 100%;
+    height: 3px;
+    background: red;
+    transform: rotate(-44deg);
+}
+

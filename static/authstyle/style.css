@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* General Body Styling */
+body {
+  margin: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  background-image: url('../images/enigma.png') !important;
+  background-color: rgba(0, 0, 0, 0.884) !important;
+  color: #fff !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  position: relative !important;
+}
+
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+/* Phone Verification Styles */
+.phone-verification-container {
+  /* text-align: center; */
+  /* max-width: 400px; */
+  width: 50%;
+  padding: 20px;
+}
+
+.brand-name {
+  color: red;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.form-container {
+  padding: 25px;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+
+p {
+  font-size: 14px;
+  margin: 20px 0px;
+  color: #ccc;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: red;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 12px 10px;
+  font-size: 14px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #222;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.85em;
+  margin-bottom: 20px;
+}
+
+.angled-button {
+  background-color: #D11C1C;
+  color: #ffffff;
+  font-size: 1em;
+  /* font-weight: 600; */
+  padding: 12px 13px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  /* text-transform: uppercase; */
+  /* clip-path: polygon(21% 0, 100% 0, 80% 95%, 2% 100%);
+   */
+   clip-path: polygon(0% 0%, 94% 0%, 141% 196%, 6% 100%, 0% 83%);
+  transition: background-color 0.3sease-in-out;
+  width: 344px;
+  /* align-items: center; */
+  margin-top: 20px;
+}
+
+.angled-button:hover {
+  background-color: #c92c3b;
+}
+
+
+.back-to-login {
+  color: #ccc;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+.back-to-login:hover {
+  text-decoration: underline;
+}
+
+/* OTP Validation Styles */
+.otp-validation-container {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.otp-inputs input {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #555;
+  background-color: transparent;
+  color: white;
+}
+
+.otp-inputs input:focus {
+  outline: none;
+  border-bottom: 2px solid red;
+}
+
+.resend-otp {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.resend-otp a {
+  font-size: 0.9rem;
+  color: red;
+  text-decoration: none;
+}
+
+.resend-otp a:hover {
+  text-decoration: underline;
+}
+
+#timer {
+  font-size: 0.9rem;
+  color: red;
+  margin-left: 5px;
+}
+
+/* Biometric Registration Page */
+.biometric-verification-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* Biometric Header Styles */
+.biometric-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 5%;
+  left: 0;
+  padding: 10px 20px;
+  z-index: 10;
+}
+
+.back-button {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.heading {
+  font-size: 1.5em;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.logo-container img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.logo-container h6 {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+}
+
+/* Modal Customization */
+/* Modal Customization */
+.modal-dialog {
+  margin: auto;
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  /* Adjust this value to move the modal to the left */
+  transform: translate(-50%, -50%);
+}
+
+.modal-body p {
+  color: white;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-title {
+  color: red !important;
+}
+
+.btn-close {
+  color: white !important;
+}
+
+/* Body of Modal */
+.modal-body {
+  color: white;
+  font-size: 1.2em;
+}
+
+/* Footer of Modal */
+.modal-footer button {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* General Image Styling */
+/* General Image Styling */
+.logo-container img {
+  width: 200px;
+  /* Smaller size for all screens */
+  height: auto;
+  /* Maintain aspect ratio */
+  transition: width 0.3s ease-in-out;
+  /* Smooth resizing */
+}
+
+/* For desktop and larger screens */
+@media (min-width: 768px) {
+  .logo-container img {
+    width: 250px;
+    /* Set a slightly larger width for desktops */
+  }
+}
+
+/* For very large screens (like larger desktop screens or full-screen apps) */
+@media (min-width: 1200px) {
+  .logo-container img {
+    width: 300px;
+    /* Set a medium size for large screens */
+  }
+}
+
+/* For mobile and small screens */
+@media (max-width: 767px) {
+  .logo-container img {
+    width: 180px;
+    /* Even smaller image size for mobile */
+  }
+}
+
+/* Change link color to white and display each link on a new line */
+/* Ensure each link appears on a new line */
+
+/* Ensure each link appears on a new line and has consistent styling */
+.links-container a {
+  display: block;
+  /* Forces each link to take up its own line */
+  color: white !important;
+  /* White color for text */
+  text-decoration: none;
+  /* Remove underline */
+  margin-bottom: 10px;
+  /* Optional: Adds space between the links */
+  font-size: 1.2em;
+  /* Adjust font size if needed */
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.footer img {
+  width: 22px;
+  height: 22px;
+}
+
+.no-account {
+  font-size: 10px;
+  color: white;
+}
+
+.learn-more-btn {
+  background-color: #D11C1C;
+  color: white;
+  padding: 9px 15px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 10px;
+  clip-path: polygon(6% 0%, 89% 0%, 133% 89%, 120% 324%, 6% 83%);
+  display: inline-block;
+}
+
+.custom-alert-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.custom-alert-box {
+  background-color: #000;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 400px;
+  height: auto;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-alert-box img.alert-icon {
+  width: 60px; /* adjust size as needed */
+  margin-bottom: 15px;
+}
+
+.custom-alert-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.custom-alert-box button:hover {
+  background-color: darkred;
+}
+
+#custom-alert-message {
+  text-align: center;
+}
+
+
+/* Desktop: hide the warning */
+.mobile-warning {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+.otp-validation-container {
+      display: none !important;
+  }
+
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .mobile-warning {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      color: white;
+  }
+
+  .mobile-warning p {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+  }
+}

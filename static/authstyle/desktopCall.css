@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    font-family: Arial, sans-serif;
+} */
+ /* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.call-container {
+    width: 40vw;
+    height: 522px;
+    background-color: #222;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 89px;
+    box-shadow: 0 0 15px rgb(159 3 3 / 50%);
+    position: absolute; /* Ya fixed bhi use kar sakte ho */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    /* border-radius: 50%; */
+    margin-top: 40px;
+    background-image: url('../chatimg/bgimgborder.png');
+}
+
+.caller-name {
+    color: white;
+    font-size: 14px;
+    margin-top: 10px !important; /* Adjust spacing */
+    width: max-content;
+    /* margin-left: 20px; */
+    margin-bottom: 0px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .control-btn img {
+    display: block;
+    width: 100%; /* optional: controls image size */
+    height: auto;
+  }
+  
+
+.call-status {
+    color: gray;
+    font-size: 14px;
+    /* margin-top: 5px; */
+    width: max-content;
+}
+.Outgoingbuttons {
+    margin-left: 50px;
+    position: absolute;
+    bottom: 21px;
+    display: flex;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+}
+.accept {
+    background-color: #25D366;
+}
+/*.decline {
+    background-color: #FF3B30;
+}*/
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../chatimg/bgimgborder.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1; /* Ensure the border is above the image */
+}
+
+.sender-image {
+    width: 47px; /* Slightly smaller to fit within the border */
+    height: 47px;
+    /* border-radius: 50%; */
+    object-fit: cover;
+    position: relative;
+    z-index: 2; /* Ensure the image is above the border */
+}
+
+
+/* body
+ { 
+    font-family: sans-serif; margin: 20px; 
+}
+video 
+{ 
+    width: 45%; margin: 5px; border: 1px solid #333;
+ } */
+
+
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+    overflow: hidden;
+}
+
+
+
+.hidden {
+    display: none;
+    width: 200px;  /* ✅ Width fix */
+    height: 200px; /* ✅ Height bhi same taake perfect round bane */
+    border-radius: 50%; /* ✅ Bilkul gol */
+    overflow: hidden; /* ✅ Extra content hide hoga */
+    /* display: flex;  */
+    align-items: center;
+    justify-content: center;
+}
+
+#remote-video, #draggable {
+    display: none;
+}
+  
+
+.video-call-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+  }
+  
+  video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* or 'contain' based on your need */
+  }
+
+.main-video {
+width: 100vw;
+height: 85vh; 
+background: #222;
+display: block;
+overflow: hidden; /* Scroll hatane ke liye */
+}
+
+#draggable {
+position: absolute; /* ✅ Important */
+top: 70px;
+left: 20px;
+}
+
+.small-video-container {
+position: absolute;
+top: 70px;
+left: 20px; /* ✅ Ensure initial position */
+width: 309px;
+height: 174px;
+border: 2px solid white;
+border-radius: 10px;
+cursor: grab;
+background: rgba(0, 0, 0, 0.5);
+}
+
+
+.small-video {
+width: 100%;
+height: 100%;
+border-radius: 10px;
+pointer-events: none;
+/* Video ke andar ke controls ko disable karne ke liye */
+}
+
+
+.top-bar {
+position: fixed;
+/* ✅ Top-bar ko fix kar dega */
+top: 0;
+/* left: -28px; */
+width: 100%;
+/* ✅ Pure width cover kare */
+display: flex;
+justify-content: space-between;
+padding: 16px;
+background: black;
+z-index: 1000;
+/* ✅ Ensure that it's always on top */
+}
+
+.center-text {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+font-size: 14px;
+opacity: 0.7;
+}
+
+.call-controls {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 15px;
+}
+
+/* .control-btn {
+color: white;
+padding: 10px;
+border-radius: 50%;
+cursor: pointer;
+width: 70px; 
+height: 70px; 
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.control-btn img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+} */
+
+
+/* .end-call {
+background: red;
+} */
+
+.user-info {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.user-info img {
+width: 115px;
+height: 36px;
+/* border-radius: 50%; */
+margin-left: 35px;
+}
+
+.window-controls {
+display: flex;
+gap: 10px;
+}
+
+.window-controls span {
+cursor: pointer;
+padding: 5px 10px;
+border-radius: 5px;
+}
+
+.video-off {
+position: relative;
+}
+
+.video-off::after {
+content: "";
+position: absolute;
+top: 44%;
+left: -1px;
+width: 100%;
+height: 3px;
+background: red;
+transform: rotate(-44deg);
+}
+
+.mute{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}

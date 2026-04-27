@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* General Body Styling */
+body {
+    margin: 0 !important;
+    font-family: 'Poppins', sans-serif !important;
+    background-image: url('../images/enigma.png') !important;
+    background-color: rgba(0, 0, 0, 0.884) !important;
+    color: #fff !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    position: relative !important;
+  }
+  /* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+  
+  
+  
+  
+  

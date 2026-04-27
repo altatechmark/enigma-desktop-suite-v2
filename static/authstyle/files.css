@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    background-image: url('../images/background\ swirl\ \(1\).png');
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative !important;
+}
+
+/* Body styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-y: hidden;  /* Prevent the entire page from scrolling */
+}
+
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+/* Main container to limit the width to 60% */
+.main-container {
+   
+    max-width: 1200px !important;
+    padding-top: 120px;
+    margin-top: -20px;
+    box-sizing: border-box;
+    height: 100%; /* Ensure it takes full height */
+    /* overflow-y: scroll; */
+}
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    height: 100px; /* Set a fixed height for the header */
+    max-height: 100px; /* Ensure header doesn't exceed this height */
+    position: absolute; /* Make header scrollable with the page */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header, .header1 {
+    position: fixed; /* Fix header on top */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    color: white;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logoo {
+    font-size: 3em; /* Increase the font size of the text */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Make the text uppercase */
+    text-align: center; /* Center the text */
+    margin: 0;
+}
+
+/* Header1 Styles */
+.header1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    height: 100px;
+}
+
+.logoo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Storage Info Section */
+.storage-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-top: 80px;
+    padding: 0 20px;
+}
+
+/* Storage Bar Styles */
+.storage-bar {
+    width: 100% !important;
+    height: 200px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-size: cover !important;
+    background-position: center;
+    background-image: url('../images/bgimage.png');
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+.storage-bar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Storage Content Styles */
+.storage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.storage-content .top-text {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.storage-content .bottom-text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.storage-content .bottom-text .large-text {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+}
+
+.storage-content .bottom-text .small-text {
+    font-size: 1.2em;
+    color: white;
+    margin: 0;
+    margin-top: 65px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Folder Styles */
+/* Folder Styles */
+.folder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+
+.folder-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.folder-icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.folder-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.folder-time {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: -40px;
+}
+
+.folder button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0;
+}
+
+.folder button:hover {
+    color: #0056b3;
+}
+
+/* Folder Separator Image */
+.folder-separate-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+/* Network Status Styles */
+.network-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Heading Section Styles */
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;/* Avoid overlap with fixed header */
+}
+
+.heading-section {
+    flex: 1;
+    text-align: center;
+    height: 100px; /* Set the height of the heading section */
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    max-height: 100px; /* Ensure heading does not exceed this height */
+}
+
+.heading-section h1 {
+    font-size: 3em; /* Increase font size */
+    margin: 0;
+    color: white;
+    text-transform: uppercase; /* Make the text uppercase */
+    font-weight: bold; /* Make the font bold */
+    line-height: 1.2; /* Adjust the line height for spacing */
+    max-width: 100%; /* Ensure text doesn't overflow */
+    overflow: hidden; /* Prevent text overflow */
+}
+
+/* Specific styles for the first heading */
+.heading-section:nth-child(1) {
+    background-color: red;
+}
+
+/* Specific styles for the second heading */
+.heading-section:nth-child(2) {
+    background-color: black;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn.active {
+    background-color: #28a745;
+}
+
+/* Hamburger Menu Styles */
+/* Hamburger Menu Styles */
+/* Hamburger Menu Styles */
+/* Kebab Menu (Vertical Dots) Styles */
+/* Kebab Menu (Vertical Dots) Styles */
+/* Kebab Menu (Vertical Dots) Styles */
+.kebab-menu {
+    display: flex;
+    flex-direction: column; /* Stack the dots vertically */
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer; /* Pointer on hover */
+    position: relative; /* Ensure it's placed relative to its parent container */
+    z-index: 100; /* Ensure it's above the folder content */
+}
+.kebab-menu .dot {
+    width: 8px; /* Size of each dot */
+    height: 8px; /* Height of each dot */
+    background-color: #333; /* Dark color for dots */
+    border-radius: 50%; /* Round the dots */
+    margin: 2px 0; /* Small space between dots */
+}
+
+
+/* Popup Styles */
+.kebab-menu {
+    position: relative;
+}
+
+.kebab-menu-btn {
+    font-size: 5rem; /* Increased font size */
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    outline: none;
+    left: -30px; /* Space between the kebab menu and adjacent elements */
+}
+
+
+.kebab-menu .modal {
+    display: none; /* Hide the modal by default */
+    position: absolute; /* Position the modal relative to the kebab menu */
+    top: 0;
+    left: 100%; /* Make the modal appear to the right of the kebab menu */
+    z-index: 999; /* Ensure the modal appears above everything else */
+    background-color: rgba(0, 0, 0, 0.4); /* Transparent background */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.modal {
+    display: block;
+    position: fixed; /* Use fixed instead of absolute */
+    z-index: 1000; /* Ensure modal is on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px; /* Adjust width */
+}
+
+.popup-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.popup-option:hover {
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.popup-option img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.popup-option span {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.file-container {
+    padding-top: 20px;
+    overflow-y: auto; /* Enable scrolling for this section */
+    height: 75%; /* Adjust height based on header height */
+}
+
+.modal {
+    --bs-modal-width: 47% !important;
+    top: 7% !important;
+} 
+.modal-content {
+    background-color: black !important; 
+    border: 1px solid red !important;
+    width: 40vw !important;
+    height: auto !important;
+    margin: 6rem;
+}
+.text {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.img-fluid {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0px;
+}
+.user-name {
+    color: #fff;
+}
+.selected {
+    background-color: red;
+}
+.send-btn {
+    display: none;
+}
+.selected .send-btn {
+    display: inline-block;
+    background-color: black;
+    color: #fff;
+}

@@ -1,0 +1,1977 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* start: Globals */
+
+html, body {
+    /* Firefox */
+    /* scrollbar-width: thin; */
+    scrollbar-color: #333 #e0e0e0;
+  }
+  
+  /* Chrome, Edge, Safari */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background-color: #333;  /* Dark thumb */
+    border-radius: 4px;
+  }
+  
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background-color: #e0e0e0;  /* Light background */
+  }
+  
+  
+*,
+::before,
+::after {
+    /* margin: 0; */
+    /* padding: 0; */
+    box-sizing: border-box;
+    font: inherit;
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--slate-700);
+    touch-action: none;
+    /* Mobile zoom gestures disable karega */
+    overflow-x: hidden !important;
+    /* Horizontal scrolling disable karega */
+    height: 100vh;
+
+}
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+.navbar {
+    background-color: #000000;
+}
+
+/* Main container to limit the width to 60% */
+.main-container {
+    width: 100% !important;
+    /* Fixed width for the entire content */
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-top: 0%;
+    z-index: 1000;
+}
+
+.notification-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: -40%;
+    /* Space before hamburger */
+}
+
+.notification-btn img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: -3px;
+}
+
+/* .hamburger {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+} */
+
+.hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;              /* Prevent blue outline on click */
+    transition: color 0.2s ease;  /* Smooth color change */
+}
+
+/* Hover and Focus state fix */
+.hamburger:hover,
+.hamburger:focus {
+    color: red;     
+    transform: none !important;            /* Change color to red on hover/focus */
+}
+
+/* Optional: Prevent shrinking due to font adjustments */
+.hamburger:active {
+    transform: none !important;
+}
+
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 150px;
+    /* Adjust size as needed */
+    height: auto;
+}
+
+.logoo {
+    font-size: 1.5em;
+    /* Increase the font size of the text */
+    text-align: center;
+    /* Center the text */
+    margin: 0;
+    color: #D11C1C;
+}
+
+
+/* Storage Info Section */
+/* .storage-info {
+    margin-left: -39%;
+
+    align-items: center;
+    width: 375%;
+    height: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
+} */
+
+.storage-info {
+    padding: 13px;
+} 
+.storage-bar {
+    width: 100% !important;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    border-radius: 16px;
+    background-image: url(../images/bgimg.png);
+    background-size: cover;
+    background-position: center;
+    padding: 37px 24px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
+}
+
+/* Storage Content */
+.storage-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.top-text {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.text-content {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    position: absolute;
+    top: 20px;
+}
+
+.large-text {
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+}
+
+.small-text {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* Icon Right Side */
+.icon-content {
+    width: 49px;
+    height: 37px;
+    position: absolute;
+    left: 91%;
+    top: -54px;
+    /* margin-top: -85px; */
+}
+
+.icon-content img {
+    width: 58px;
+    height: 66px;
+}
+
+/* Progress Bar */
+.storage-progress {
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 78%; /* Adjust dynamically if needed */
+    height: 100%;
+    background-color: rgb(224, 13, 13);
+    border-radius: 4px;
+  }
+
+    
+  @media (max-width: 600px) {
+    .large-text {
+      font-size: 1.5rem;
+    }
+  
+    .small-text {
+      font-size: 0.9rem;
+    }
+  
+    .icon-content img {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .text-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+
+/* .storage-progress .progress-fill {
+    width: 78%;
+    height: 100%;
+    background-color: #e63946;
+} */
+
+.folder-section {
+    margin-left: 7px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow-y: scroll;
+  height: 300px;
+padding: 15px;
+/* scrollbar-width: thin; */
+scrollbar-color: #333 #ccc;
+    
+}
+
+.folder-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .folder-section::-webkit-scrollbar-track {
+    background: #ccc; /* optional background */
+    border-radius: 10px;
+  }
+  
+  .folder-section::-webkit-scrollbar-thumb {
+    background: #333; /* blackish scrollbar thumb */
+    border-radius: 10px;
+  }
+  
+  .folder-section::-webkit-scrollbar-thumb:hover {
+    background: #111; /* darker on hover */
+  }
+  
+
+
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack folders vertically */
+    gap: 50px;
+    /* Space between each folder */
+    border-bottom: 2px solid gray;
+    /* Add width, style, and color */
+
+}
+
+
+/* .folder { 17/4/25 ko change kia q k 1063 per bi define h 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+} */
+
+.folder-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.folder-icon {
+    position: relative;
+    width: 70px;
+    /* Same as image */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.folder-icon::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../chatimg/bgimgborder.png');
+    /* Background Border */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.folder-image {
+    width: 50px;
+    /* Adjust as needed */
+    height: 50px;
+    object-fit: cover;
+    position: relative;
+}
+
+.folder-name {
+    font-size: 18px;
+    color: red;
+}
+
+/* .folder-time { 17/4/25 change hide kardia isko q k 1109 per bi h same class
+    font-size: 0.9em;
+    color: #777;
+} */
+
+button {
+    display: flex;
+    align-items: center;
+    /* Align button content (text + icon) in the same row */
+    gap: 5px;
+    /* Space between button text and icon */
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0;
+}
+
+.folder button:hover {
+    color: #0056b3;
+    /* Color on hover */
+}
+
+/* Ensure the image in the button is in the same row as the text */
+.folder button img {
+    max-width: 30px;
+    /* Adjust image size */
+    height: auto;
+}
+
+button {
+    display: flex;
+    /* flex-direction: column;  */
+    align-items: center;
+    /* Center content */
+    justify-content: center;
+    /* Ensure both image and text are centered */
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    margin-top: -10px;
+}
+
+button img {
+    margin-bottom: 5px;
+    /* Add space between image and text */
+    width: 20px;
+    /* Adjust the size of the image */
+    height: auto;
+}
+
+button:hover {
+    color: #0056b3;
+    /* Optional: Change color on hover */
+}
+
+
+.content {
+    flex: 1;
+}
+
+/* .heading-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 10px;
+    z-index: 1000;
+} */
+
+/* This will only be active in file view */
+/* .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+} */
+
+.heading-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    /* Change as needed */
+    padding: 10px;
+    /* z-index: 1000; */
+    /* Ensure it stays on top */
+}
+
+
+.heading-section {
+    /* padding: 13px; */
+    flex: 1;
+    text-align: center;
+    /* height: 69px; */
+    align-items: flex-end;
+}
+
+.heading-section h1 {
+    font-size: 14px;
+    /* margin: 0; */
+    color: white;
+    /* height: 60px; */
+    align-items: flex-end;
+
+}
+
+.heading-section a {
+    text-decoration: none;
+    /* Underline hatane ke liye */
+    color: inherit;
+    /* Default text color maintain karne ke liye */
+    gap: 10px;
+    /* Image aur text ke beech space dene ke liye */
+}
+
+
+.heading-section:nth-child(1) {
+    background-color: black;
+}
+
+.heading-section:nth-child(2) {
+    background-color: red;
+}
+
+.heading-section img {
+    margin-top: 10px;
+    width: 26px;
+    height: 26px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    padding: 20px;
+}
+
+.btn {
+    flex: 1 1 200px; /* Flexible width with minimum */
+    /* max-width: 300px; */
+    min-width: 150px;
+    height: 150px;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-images,
+.btn-audios,
+.btn-videos,
+.btn-documents {
+    background-image: url('../images/Vector Smart Object (1).png');
+}
+
+.btn.active {
+    background-image: url('../images/bgimg1.png');
+    border-radius: 30px;
+    transform: scale(1.05);
+    border: none;
+}
+
+button img {
+    margin-bottom: 8px;
+    width: 36px;
+    height: auto;
+}
+
+.button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-text,
+.image-size {
+    color: white;
+}
+
+.image-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.image-size {
+    font-size: 0.8rem;
+    color: #ddd;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ✅ Responsive Text & Layout */
+@media (max-width: 600px) {
+    .btn {
+        height: 130px;
+        max-width: 100%;
+        padding: 8px;
+    }
+
+    .image-text {
+        font-size: 0.9rem;
+    }
+
+    .image-size {
+        font-size: 0.7rem;
+    }
+
+    button img {
+        width: 30px;
+    }
+}
+
+
+/* 
+.button-container {
+    padding: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 78px;
+}
+
+
+.btn {
+    width: 350px;
+    height: 170px;
+    border: none !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 36px !important;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.btn-images {
+    background-image: url('../images/Vector Smart Object (1).png');
+}
+
+.btn-audios {
+    background-image: url('../images/Vector Smart Object (1).png');
+}
+
+.btn-videos {
+    background-image: url('../images/Vector Smart Object (1).png');
+}
+
+.btn-documents {
+    background-image: url('../images/Vector Smart Object (1).png');
+}
+
+
+.btn.active {
+    background-image: url('../images/bgimg1.png');
+    width: 395px;
+    height: 170px;
+    border-radius: 60px;
+
+}
+
+
+button img {
+    margin-bottom: 8px;
+    width: 40px;
+    height: auto;
+}
+
+.button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-text,
+.image-size {
+    color: white;
+}
+
+.image-text {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.image-size {
+    font-size: 0.8em;
+    color: #ddd;
+} */
+
+/* button:hover {
+    color: #0056b3;
+} */
+
+/* Main container for network status */
+
+
+/* Heading and Status Container */
+/* Main container for network status */
+.network-status {
+    display: flex;
+    flex-direction: column;
+    /* Stack heading and status items vertically */
+    margin-top: 20px;
+    width: 100%;
+    /* Ensure the container takes up the full width */
+}
+
+/* Heading Styling */
+.heading {
+    margin-bottom: 10px;
+    /* Space below the heading */
+}
+
+.heading h2 {
+    margin: 15px;
+    font-size: 24px;
+}
+
+/* Main content container */
+.status-container {
+    padding: 23px;
+    margin-left: 7px;
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+}
+
+/* Left side container for status items */
+.left-side,
+.right-side {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically in each container */
+}
+
+/* Individual status items */
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between text and image */
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/* Disconnected (Red) */
+.status.enigma_d {
+    color: red;
+    background-color: transparent;
+}
+
+/* Connected (Green) */
+.status.enigma {
+    color: green;
+    background-color: transparent;
+}
+
+/* Icon size */
+.status img {
+    width: 20px;
+    height: 20px;
+}
+
+
+#switch-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#switch-button:hover {
+    background-color: #0056b3;
+}
+
+.no-files-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.no-files-container .icon img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.no-files-container .message {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.load-files-button {
+    background-color: #e63946;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Hover state – only color change, no effects */
+.load-files-button:hover,
+.load-files-button:focus,
+.load-files-button:active {
+    background-color: #c92c3b;
+    color: #ffffff;
+
+    /* Still no movement or animation */
+    transform: none;
+    box-shadow: none;
+    scale: 1;
+}
+.network-status {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.network-status p {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.network-status .status-item {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.network-status .disconnected {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Sidebar Main (Background Overlay) */
+.sidebar-main {
+    width: 100% !important;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* Slightly transparent black background */
+    padding: 20px;
+    display: none;
+    /* Initially hidden */
+    z-index: 1000;
+    /* Ensure it's on top */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #111;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transform: translateX(-100%);
+    /* Initially hidden */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    /* Sidebar should be on top of the overlay */
+}
+
+.sidebar.open {
+    transform: translateX(0);
+    /* Show the sidebar */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid red;
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Hover and focus state – white color + no shrink/move */
+.close-btn:hover,
+.close-btn:focus,
+.close-btn:active {
+    color: white;
+    transform: none;
+    box-shadow: none;
+    scale: 1;
+}
+
+/* Profile section */
+.profile {
+    /* display: flex; */
+    align-items: center;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.profile img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile span {
+    font-size: 18px;
+}
+
+/* Menu Styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    color: #ffffff;
+}
+
+.menu li {
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu li img {
+    margin-right: 20px;
+}
+
+.menu li:hover {
+    background: #222;
+}
+
+.logout {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+
+
+
+.kebab-menu {
+    display: flex;
+    flex-direction: column;
+    /* Stack the dots vertically */
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    /* Pointer on hover */
+    position: relative;
+    /* Ensure it's placed relative to its parent container */
+    z-index: 100;
+    /* Ensure it's above the folder content */
+}
+
+.kebab-menu .dot {
+    width: 8px;
+    /* Size of each dot */
+    height: 8px;
+    /* Height of each dot */
+    background-color: #333;
+    /* Dark color for dots */
+    border-radius: 50%;
+    /* Round the dots */
+    margin: 2px 0;
+    /* Small space between dots */
+}
+
+
+/* Popup Styles */
+.kebab-menu {
+    position: relative;
+}
+
+.kebab-menu-btn {
+    font-size: 5rem;
+    /* Increased font size */
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    outline: none;
+    left: -30px;
+    /* Space between the kebab menu and adjacent elements */
+}
+
+
+.kebab-menu .modal {
+    display: none;
+    /* Hide the modal by default */
+    position: absolute;
+    /* Position the modal relative to the kebab menu */
+    top: 0;
+    left: 100%;
+    /* Make the modal appear to the right of the kebab menu */
+    z-index: 999;
+    /* Ensure the modal appears above everything else */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Transparent background */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.modal {
+    --bs-modal-width: 47% !important;
+    top: 7% !important;
+}
+
+.modal-content {
+    background-color: black !important;
+    border: 1px solid red !important;
+    width: 130% !important;
+    height: auto !important;
+    margin: 0rem;
+}
+
+.text {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.img-fluid {
+    width: 58px !important;
+    height: 40px !important;
+    margin: 10px 0px !important;
+}
+
+.img-fluid1 {
+    width: 400px !important;
+    height: auto !important;
+    margin: 10px 0px !important;
+}
+
+.user-name {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.selected {
+    background-color: red;
+}
+
+.send-btn {
+    display: none;
+}
+
+.selected .send-btn {
+    display: inline-block;
+    background-color: black;
+    color: #fff;
+}
+
+.btnn {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.folder-separate-image {
+    width: 104% !important;
+    display: flex;
+    overflow: visible;
+    /* Ensure overflow is visible */
+    position: relative;
+    /* Ensure correct positioning */
+}
+
+.folder-separate-image img {
+    width: 100%;
+    object-fit: cover;
+    margin: 8px 0;
+    /* z-index: 1; */
+    /* Ensure image is above other elements */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .folder-separate-image img {
+        height: 20px;
+    }
+}
+
+/* .popup {
+    width: 234px;
+    display: none;
+    position: absolute;
+    top: 21%;
+    left: -235px;
+    background: black;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 22px;
+    border-radius: 24px;
+    z-index: 1000;
+} */
+/* .popup-content {
+    padding: 10px;
+} */
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background: transparent;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* .select-btn {
+    background-color: black;
+    border: none;
+    padding: 0px 0px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.85em;
+    margin-left: auto;
+} */
+
+.select-btn {
+    background-color: black;
+    border: none;
+    padding: 4px 12px;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.85em;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+.dropdown-content {
+    display: none;
+    flex-direction: row; /* FLEX ROW */
+    position: absolute;
+    left: -430px;
+    top: 2%;
+    background-color: red;
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+}
+
+.dropdown-content button {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+}
+
+.dropdown.active .dropdown-content {
+    display: flex;
+    gap: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* General Popup Styles */
+.custom-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px red;
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+    border: 2px solid red;
+}
+
+/* .popup-content {
+    justify-content: space-around;
+    left: ma;
+    
+    margin-left: -14px;
+
+} */
+
+.popup-content h3 {
+    color: red;
+    font-size: 18px;
+}
+
+.horizontal-dropdown {
+    background: red;
+    padding: 0px;
+    border-radius: 8px;
+    margin-top: 79px;
+}
+
+.horizontal-dropdown span {
+    background: black;
+    color: red;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.horizontal-dropdown span:hover {
+    background: red;
+    color: black;
+}
+
+.close-popup {
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-popup:hover {
+    background: darkred;
+}
+
+.select-status {
+    width: 62px;
+    height: 33px;
+    background-color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Folder Layout */
+.folder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+/* Left Side */
+.folder-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Confidential Section */
+.confidential {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.confidential img {
+    width: 30px;
+    height: 30px;
+}
+
+.confidential-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Folder Info */
+.folder-info {
+    display: flex;
+    align-items: center;
+}
+
+.folder-info img {
+    width: 56px;
+    height: 56px;
+    margin-right: 10px;
+}
+
+
+.folder-time {
+    font-size: 13px;
+    color: black
+}
+
+/* Right Side */
+.folder-actions {
+    display: flex;
+    align-items: center;
+}
+
+.folder-actions button {
+    display: block;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* .category-button {
+    border-radius: 5px;
+} */
+
+.options-button {
+    border-radius: 5px;
+}
+
+/* General Popup Styles */
+/* Popup Styles */
+/* Popup Styles */
+.custom-popup {
+    width: 32%;
+    position: absolute;
+    top: 100%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+.custom-popup1 {
+    /* width: 345px;
+    height: 224px; */
+    position: absolute;
+    /* top: 100%; */
+    left: 75%;
+    /* transform: translate(-50%, -50%); */
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    text-align: center;
+}
+
+/* Flex container for buttons */
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.rename-btn,
+.delete-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+/* Specific colors for buttons */
+.delete-btn {
+    background: red;
+    color: white;
+}
+
+.rename-btn {
+    background: green;
+    color: white;
+}
+
+/* Hover Effects */
+.delete-btn:hover {
+    background: darkred;
+    color: white;
+}
+
+.rename-btn:hover {
+    background: darkgreen;
+    color: white;
+}
+
+/* Close button style */
+.close-options {
+    background: gray;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-options:hover {
+    background: darkgray;
+}
+
+.popup-content2 {
+   
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: -14px;
+
+}
+
+.rename-modal {
+    width: 345px;
+    height: 200px;
+    position: absolute;
+    top: 100%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    
+}
+
+.delete-modal {
+    width: 345px;
+    height: 200px;
+    position: absolute;
+    top: 100%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Rename Modal Buttons */
+.confirm-rename,
+.close-rename {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.confirm-rename {
+    background: green;
+    color: white;
+}
+
+.confirm-rename:hover {
+    background: darkgreen;
+    color: white;
+}
+
+.close-rename {
+    background: red;
+    color: white;
+}
+
+.close-rename:hover {
+    background: darkred;
+    color: white;
+}
+
+
+/* Delete Modal Buttons */
+.confirm-delete,
+.close-delete {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.confirm-delete {
+    background: red;
+    color: white;
+}
+
+.confirm-delete:hover {
+    background: darkred;
+    color: white;
+}
+.close-delete {
+    background: green;
+    color: white;
+}
+
+.close-delete:hover {
+    background: darkgreen;
+    color: white;
+}
+
+/* .horizontal-dropdown span {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+} */
+
+/* Popup background styling */
+.create-folder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Popup box */
+.create-folder>div {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px red;
+    /* Neon glow effect */
+    border: 2px solid red;
+    /* Red border */
+    position: relative;
+}
+
+/* Input field */
+.create-folder input {
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+}
+
+/* Buttons */
+.create-folder button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.create-folder button:first-of-type {
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+.create-folder button:first-of-type:hover {
+    background-color: #c92c3b;
+}
+
+.create-folder button:last-of-type {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+}
+
+.create-folder button:last-of-type:hover {
+    background-color: #c92c3b;
+    color: #ffffff;
+}
+
+#createFolderBtn {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 20px;
+    height: 44px;
+    min-width: 120px;
+    border-radius: 6px;
+    background-color: #e63946;
+  color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-right: 19px;
+}
+
+
+/* Hover Effect */
+#createFolderBtn:hover {
+    background-color: #c92c3b;
+    /* 🔴 Darker red on hover */
+    transform: scale(1.05);
+    /* Slight pop effect */
+}
+
+
+/* Popup background styling */
+.logout-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black background with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure the popup is above other content */
+}
+
+/* Popup content styling */
+.logout-popup>div {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+}
+
+/* Button styling */
+.logout-popup button {
+    background-color: #e63946;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-popup button:hover {
+    background-color: #c92c3b;
+}
+
+/* Style for the logout button */
+#logoutBtn {
+    color: white;
+    /* Change text color to black for visibility */
+    padding: 10px 20px;
+    /* Add padding for better button size */
+    cursor: pointer;
+    border-radius: 5px;
+    /* Optional: Adds rounded corners */
+    display: flex;
+    align-items: center;
+    /* Align the icon and text properly */
+    gap: 12px;
+    margin-left: 5px;
+    /* Add space between the icon and text */
+}
+
+/* Adjusting the position of the button inside the <li> */
+li.logout {
+    margin-left: -20px;
+    /* Adjust this value to move the button to the left */
+}
+
+/* Style for the icon inside the button */
+#logoutBtn #icon {
+    width: 31px;
+    height: 31p
+}
+
+
+
+/* Additional styling for the button text and icon */
+#logoutBtn img {
+    margin-right: 8px;
+    /* Space between the icon and text */
+}
+
+/* .file-container {
+    display: none;
+} */
+
+#current-content {
+    margin-top: -57px;
+    padding: 90px 100px;
+    /* padding: 0px 127px; */
+}
+
+.modal-title {
+    color: white;
+}
+
+.btn-close {
+    filter: invert(1);
+    /* Makes the close icon white */
+}
+.button-row {
+    display: flex;
+    justify-content: center; /* Or use 'space-between' or 'gap' if needed */
+    gap: 10px; /* Space between buttons */
+    /* margin-top: 58px; */
+  }
+
+.button-row1 {
+    display: flex;
+    justify-content: center; /* Or use 'space-between' or 'gap' if needed */
+    gap: 10px; /* Space between buttons */
+    margin-top: 23px;
+  }
+
+  /* Loader Section */
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: block;
+  font-size: 18px;
+}
+
+.progress-wrapper {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 6px;
+  border-radius: 10px;
+}
+
+.progress-line {
+  height: 100%;
+  background-color: #007bff;
+  width: 0%;  /* Initially 0% */
+  transition: width 0.3s ease-out;
+}
+
+.progress-text {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+#videoPlayer {
+    height: 71vh;
+}
+
+.upload-container {
+    margin-top: 10px;
+    display: none; /* Default: hidden */
+}
+
+.upload-container.show {
+    display: flex !important;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 35px;
+}
+
+
+#uploadButton {
+    background-color: #D11C1C;
+    color: white;
+    padding: 12px 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* spacing between icon and text */
+}
+
+#uploadButton:hover {
+    opacity: 0.9;
+}
+
+.upload-icon {
+    font-size: 18px;
+}
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none; /* Default hidden */
+}
+
+#loader img {
+    max-width: 150px;       /* Loader image won't exceed this */
+    width: 100%;            /* Will shrink if needed */
+    height: auto;
+    object-fit: contain;
+}
+.custom-alert-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .custom-alert-box {
+    background-color: #000;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-alert-box img.alert-icon {
+    width: 60px; /* adjust size as needed */
+    margin-bottom: 15px;
+  }
+  
+  .custom-alert-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .custom-alert-box button:hover {
+    background-color: darkred;
+  }
+  
+  #custom-alert-message {
+    text-align: center;
+  }
+
+/* Hide warning by default */
+.mobile-warning {
+    display: none;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    /* Hide other content */
+    #current-content,
+    #new-content,
+    .heading-container,
+    .header {
+        display: none !important;
+    }
+
+    /* Mobile warning full screen */
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-warning {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+
+    .mobile-warning p {
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+    }
+}

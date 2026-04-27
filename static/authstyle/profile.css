@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    background-image: url('../images/enigma.png');
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.container {
+    height: 93vh;
+    width: 86%;
+    background-color: #111;
+    padding: 10px;
+    border-radius: 10px;
+}
+.header {
+    background-color: red;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.box {
+    background-color: #222;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.box strong {
+    margin-bottom: 5px;
+}
+/* .box input {
+    background: none;
+    border: none;
+    color: white;
+    width: 80%;
+    margin: 5px 0px;
+    padding: 10px 10px;
+} */
+.box input, .box textarea {
+    background: none;
+    border: none;
+    color: white;
+    width: 80%;
+    margin: 5px 0px;
+    padding: 10px 10px;
+}
+.box textarea {
+    resize: none;
+    height: 60px;
+}
+.box button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+.edit-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.conversation-back {
+    background: transparent;
+    border: none;
+    outline: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--slate-400);
+    margin-right: 12px;
+}
+/* .conversation-back:hover {
+    background-color: var(--slate-100);
+    border-radius: 50%;
+    color: var(--slate-600);
+}
+.conversation-back:active {
+    background-color: var(--slate-200);
+} */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    margin-left: 8%;
+}
+
+.conversation-back img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.profile-title {
+    margin-right: 188px;
+    font-size: 22px;
+    font-weight: bold;
+    /* text-align: center;
+    flex-grow: 1; */
+}
+
+.custom-alert-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .custom-alert-box {
+    background-color: #000;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-alert-box img.alert-icon {
+    width: 60px; /* adjust size as needed */
+    margin-bottom: 15px;
+  }
+  
+  .custom-alert-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .custom-alert-box button:hover {
+    background-color: darkred;
+  }
+  
+  #custom-alert-message {
+    text-align: center;
+  }
+  /* Desktop: hide the warning */
+.mobile-warning {
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+ .container {
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-warning {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        color: white;
+    }
+
+    .mobile-warning p {
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+    }
+}
+

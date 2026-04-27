@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Background and text styles */
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+/* Apply 'Inter' font to all text-related elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+input,
+textarea,
+button,
+select,
+a,
+li,
+td,
+th,
+div,
+strong,
+em,
+small,
+blockquote,
+pre,
+code {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* .header {
+    color: white;
+    display: flex;
+    justify-content: center; 
+    gap: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative; 
+  }
+  
+  
+  .header img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    position: absolute;
+    left: 2%;
+  } */
+
+/* Ticket cards container (flex for row layout) */
+.ticket-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* ✅ Cards ke darmiyan gap */
+    justify-content: center; /* ✅ Cards center aligned rahain */
+    /* align-items: flex-start; */
+    padding: 20px;
+}
+
+/* ✅ Individual Ticket Card */
+.ticket-card {
+    background: #333; /* ✅ Tumhari existing container bg */
+    border: 1px solid white;
+    padding: 10px 15px;
+    border-radius: 10px; /* ✅ Tumhara existing border-radius */
+    max-width: 400px; /* ✅ Same width jo tumhara container hai */
+    flex: 1 1 calc(33.333% - 20px); /* ✅ 3 cards ek row mein */
+    min-width: 280px;
+    text-align: left;
+}
+
+/* ✅ Responsive: Tablet (2 cards per row) */
+@media (max-width: 1024px) {
+    .ticket-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+/* ✅ Responsive: Mobile (1 card per row) */
+@media (max-width: 600px) {
+    .ticket-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* ✅ Styles from existing container */
+.ticket-info {
+    border: none; /* ✅ Already border hai */
+    padding: 0; /* ✅ Extra padding hata di */
+}
+
+/* ✅ Labels & Values Spacing */
+.ticket-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+/* ✅ Status & Priority Badges */
+.ticket-id {
+    background-color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.status.open {
+    background-color: green;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.priority.urgent {
+    background-color: red;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+/* ✅ Attachment Link */
+.Attachment {
+    color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    /* background-color: #fff; */
+    color: white;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  
+  .back-button {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .profile img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid red;
+  }
+  
+  .user-info span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: -2px;
+  }
+  
+  .user-email {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  /* Desktop: hide the warning */
+.mobile-warning {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+.header,
+.container {
+      display: none !important;
+  }
+
+  body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .mobile-warning {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      color: white;
+  }
+
+  .mobile-warning p {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+  }
+}
