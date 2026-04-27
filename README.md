@@ -1120,7 +1120,6 @@ For contribution guidelines, please refer to CONTRIBUTING.md
 
 ---
 
-**Last Updated**: April 2026
+**Last Updated**: May 2025
 
-**Maintained By**: Enigma Desktop Suite Development Team
 
