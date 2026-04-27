@@ -2,6 +2,12 @@
 
 A comprehensive desktop application providing advanced encryption, secure communication, and file management with multiple cryptographic algorithms.
 
+## Download Build
+
+You can download the latest build from the link below:
+
+https://drive.google.com/file/d/1j_lU7dlmPtGEUcNop7zj9xcMBlzSFxFk/view?usp=drive_link
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
